@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>技術書典4で購入した本のレビュー ～脆弱性ってなんだろう～ - uranari dayo</title>
+  <meta name="description" content="技術書典4で購入した本のレビュー ～脆弱性ってなんだろう～">
+  <meta name="author" content="">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://uranari.io/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+  
+  <link rel="stylesheet" href="https://uranari.io/css/custom.css">
+
+  
+  
+  <link rel="stylesheet" href="https://uranari.io/highlight/styles/default.css">
+  
+  <script src="https://uranari.io/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <meta name="generator" content="Hugo 0.40.1" />
+  
+</head>
+<body>
+
+<div class="header pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
+            
+            <a href="https://uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <ul class="pure-menu-list">
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about/" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile pure-menu nav-menu">
+            <a href="https://uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="#" id="toggle-btn">&#9776;</a>
+            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
+                
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
+
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2018-04-25</time>
+		            
+                    
+                    |
+                    
+                    
+
+                    
+                    categories:<a href="https://uranari.io/categories/security">security</a> 
+                    
+
+                    
+                </p>
+                <h1>技術書典4で購入した本のレビュー ～脆弱性ってなんだろう～</h1>
+            </div>
+
+            <div class="post-content">
+                
+
+<p><a href="https://techbookfest.org/event/tbf04" target="_blank" rel="noopener">技術書典4</a>で何冊か本を購入したのでレビューをしたいと思います。</p>
+
+<p>まず最初に<a href="https://twitter.com/infragirl755" target="_blank" rel="noopener">なつよさん(@infragirl755)</a>が出してた「脆弱性ってなんだろう？～CVSSを知ろう～」から。</p>
+
+<p>この本では脆弱性そのものの説明は軽くで主にCVSSという脆弱性の危険度の評価基準についての解説が記載されている。</p>
+
+<p>CVSSにはv2とv3というバージョンがあるがこの本ではv2について解説されている。</p>
+
+<p>CVSSとは脆弱性の評価手法の１つで大きく3つの基準から構成されていて、またそれぞれの基準がいくつかの要素から構成されている。</p>
+
+<p>(1)基本評価基準(Base Metrics)</p>
+
+<p>(2)現状評価基準(Temporal Metrics)</p>
+
+<p>(3)環境評価基準(Enviromental Metrics)</p>
+
+<div id="toc_container" class="toc_transparent no_bullets">
+  <p class="toc_title">
+    目次
+  </p>
+  
+  <ul class="toc_list">
+    <li>
+      <a href="#1Base_Metrics"><span class="toc_number toc_depth_1">1</span> (1)基本評価基準(Base Metrics)</a>
+    </li>
+    <li>
+      <a href="#2Temporal_Metrics"><span class="toc_number toc_depth_1">2</span> (2)現状評価基準(Temporal Metrics)</a>
+    </li>
+    <li>
+      <a href="#3Enviromental_Metrics"><span class="toc_number toc_depth_1">3</span> (3)環境評価基準(Enviromental Metrics)</a>
+    </li>
+    <li>
+      <a href="#i"><span class="toc_number toc_depth_1">4</span> 感想</a>
+    </li>
+  </ul>
+</div>
+
+<h3 id="span-id-1base-metrics-1-基本評価基準-base-metrics-span"><span id="1Base_Metrics">(1)基本評価基準(Base Metrics)</span></h3>
+
+<p>基本評価基準は以下の6つの基準から構成されている。</p>
+
+<p>1.AV:攻撃元区分(Access Vector)</p>
+
+<p>2.AC:攻撃条件の複雑さ(Access Complexity)</p>
+
+<p>3.Au:攻撃前の認証可否(Authentication)</p>
+
+<p>4.C:機密性への影響(情報漏えいの可能性、Confidentiality Impact)</p>
+
+<p>5.I:完全性への影響(情報改ざんの可能性、Integrity Impact)</p>
+
+<p>6.A:可用性への影響(業務停止の可能性)</p>
+
+<h3 id="span-id-2temporal-metrics-2-現状評価基準-temporal-metrics-span"><span id="2Temporal_Metrics">(2)現状評価基準(Temporal Metrics)</span></h3>
+
+<p>現状評価基準はその時の脆弱性の危険度を表す。</p>
+
+<p>1.E:攻撃される可能性(Exploitability)</p>
+
+<p>2.RL:利用可能な対策のレベル(Remediation Level)</p>
+
+<p>3.RC:脆弱性情報の信頼性(report Confidence)</p>
+
+<p>一番危険なのは、脆弱性の対策方法がないにも関わらずインターネット上で脆弱性があるという情報とその具体的な攻撃手法の情報が出回っているときが一番危険。</p>
+
+<h3 id="span-id-3enviromental-metrics-3-環境評価基準-enviromental-metrics-span"><span id="3Enviromental_Metrics">(3)環境評価基準(Enviromental Metrics)</span></h3>
+
+<p>最後に環境評価基準です。これは脆弱性のあるソフトウェアを利用している環境ごとに異なるので一概にどうとは言えない。</p>
+
+<p>1.COP:二次的被害の可能性(Collanteral Damage Potensial)</p>
+
+<p>2.TD:影響を受ける対象システムの範囲(Target Distribution)</p>
+
+<p>3.CR,IR,AR:対象システムのセキュリティ要求度(Security Requirements)</p>
+
+<h3 id="span-id-i-感想-span"><span id="i">感想</span></h3>
+
+<p>自分は脆弱性の情報がでたときは評価基準の値とか見てなくて、主に見てるのは</p>
+
+<p>「脆弱性を悪用した結果何ができるのか」(権限昇格なのか、DoSなのか、RCEなのか)</p>
+
+<p>「その攻撃はリモートからできるのか」(インターネット越しにできるのか、LAN内にいないと駄目なのか)</p>
+
+<p>「攻撃が成功する前提条件はあるか」(1つ上のやつも含まれるけどそれ以外にもログインしてる必要があるとか、事前に特定の情報を知っておく必要があるのか)</p>
+
+<p>ぐらいで、後は脆弱性の深刻度を表すスコアくらいしか見てないのでたぶん脆弱性の会話をするときにこの評価基準の値がx.xで～とか言われても分からないかも&#8230;</p>
+
+<p>これはDoSなのかRCEなのかでサービスが止まってしまうのか踏み台にされるのか最悪個人情報が抜かれるのかまでいっきに想定できるからってのと、攻撃の前提条件が分かればすぐに攻撃がやってくるのかどうかってのがある程度想定できるから。</p>
+
+            </div>
+        </div>
+	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="footer-content">
+		  <div class="pure-menu pure-menu-horizontal">
+              <ul>
+			      
+				  
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+              </ul>
+              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
+          </div>
+		  
+		</div>
+	  </div>
+      <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+<script src="https://uranari.io/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://uranari.io/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#toggle-btn").click(function(){
+    $("#toggle-content").toggle();
+    if($(this).html() === "☰") {
+        $(this).html("X")
+    } else {
+        $(this).html("☰")
+    }
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".desktop").removeAttr("style");
+    }
+  });
+</script>
+
+</body>
+</html>
+

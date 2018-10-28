@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>Dockerを使って脆弱性の検証環境を作成してみる　～Dockerイメージ作成編～ - uranari dayo</title>
+  <meta name="description" content="Dockerを使って脆弱性の検証環境を作成してみる　～Dockerイメージ作成編～">
+  <meta name="author" content="">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://uranari.io/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+  
+  <link rel="stylesheet" href="https://uranari.io/css/custom.css">
+
+  
+  
+  <link rel="stylesheet" href="https://uranari.io/highlight/styles/default.css">
+  
+  <script src="https://uranari.io/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <meta name="generator" content="Hugo 0.40.1" />
+  
+</head>
+<body>
+
+<div class="header pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
+            
+            <a href="https://uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <ul class="pure-menu-list">
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about/" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile pure-menu nav-menu">
+            <a href="https://uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="#" id="toggle-btn">&#9776;</a>
+            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
+                
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
+
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2017-11-29</time>
+		            
+                    
+                    |
+                    
+                    
+
+                    
+                    categories:<a href="https://uranari.io/categories/security">security</a> <a href="https://uranari.io/categories/tech">tech</a> 
+                    
+
+                    
+                </p>
+                <h1>Dockerを使って脆弱性の検証環境を作成してみる　～Dockerイメージ作成編～</h1>
+            </div>
+
+            <div class="post-content">
+                
+
+<p>前回は公開されてるイメージから脆弱性の検証を実施してみたけど今回はイメージを作成するところからやってみる。</p>
+
+<p>今回はTomcatのPUTの脆弱性(CVE-2017-12615～12617)を検証してみる。</p>
+
+<p>まずはあらかじめ検証対象のTomcatをローカルに保存し、web.xmlにreadonly falseの設定を追加しておく。</p>
+
+<p>なお今回はTomcat 7.0.79で検証してみた。</p>
+
+<pre class="lang:sh decode:true " title="web.xml" >&lt;servlet&gt;
+    &lt;servlet-name&gt;default&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;org.apache.catalina.servlets.DefaultServlet&lt;/servlet-class&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;debug&lt;/param-name&gt;
+        &lt;param-value&gt;0&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;listings&lt;/param-name&gt;
+        &lt;param-value&gt;false&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;init-param&gt;
+        &lt;param-name&gt;readonly&lt;/param-name&gt;
+        &lt;param-value&gt;false&lt;/param-value&gt;
+    &lt;/init-param&gt;
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;
+&lt;/servlet&gt;</pre>
+
+<p>続いて以下のDockerfileを書いておく。</p>
+
+<pre class="lang:sh decode:true " title="Dockerfile" >FROM centos:7
+MAINTAINER uranari &lt;uranaricb@gmail.com&gt;
+RUN mkdir /usr/local/tomcat
+COPY tomcat /usr/local/tomcat
+RUN yum -y install --nogpgcheck java-1.8.0-openjdk-devel.x86_64</pre>
+
+<p>あとはこれをbuildして脆弱なイメージを作成する。</p>
+
+<pre class="lang:sh decode:true " >docker build -t uranari/tomcat_put_vuln .</pre>
+
+<p>これをリポジトリにpush</p>
+
+<pre class="lang:sh decode:true " >docker push uranari/tomcat_put_vuln</pre>
+
+<p>実際に検証を実施してみる。</p>
+
+<p>pushしたイメージを持ってきてコンテナを作成し、tomcatを起動させ検証する。</p>
+
+<p>前回と同じ「192.168.30.99」のCentOS上でコンテナを作成して検証しています。</p>
+
+<pre class="lang:sh decode:true " >docker run -it -d -p 8080:8080 --name tomcat_put_vuln uranari/tomcat_put_vuln /bin/bash</pre>
+
+<p>コンテナを作成したらコンテナの中に入って/usr/local/tomcat/bin/startup.shを叩いてtomcatを起動させてください。</p>
+
+<p>これでtomcatが起動します。</p>
+
+<p>では実際に脆弱性の検証を実施してみましょう。</p>
+
+<p>まずブラウザでアクセスできることを確認します。</p>
+
+<p><a href="https://www.uranari.io/wp-content/uploads/2017/11/tomcat.jpg" data-rel="lightbox-gallery-0QZwyEn5" data-rl\_title="" data-rl\_caption="" title=""><img src="https://www.uranari.io/wp-content/uploads/2017/11/tomcat.jpg" alt="" width="1270" height="822" class="alignnone size-full wp-image-349" srcset="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114253/tomcat.jpg 1270w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114253/tomcat-300x194.jpg 300w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114253/tomcat-768x497.jpg 768w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114253/tomcat-1024x663.jpg 1024w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114253/tomcat-320x207.jpg 320w" sizes="(max-width: 1270px) 100vw, 1270px" /></a></p>
+
+<p>今回はGETのqueryにcmdを指定して渡されたパラメーターのコマンドを実行するshell.jspというwebshellを設置し実際にコマンドが実行されることを確認したいと思います。</p>
+
+<p>まずはPUTでwebshellを設置する。</p>
+
+<p><a href="http://www.uranari.io/tech/346/attachment/put_request/" rel="attachment wp-att-351"><img src="https://www.uranari.io/wp-content/uploads/2017/11/put_request.jpg" alt="" width="741" height="463" class="alignnone size-full wp-image-351" srcset="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114856/put_request.jpg 741w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114856/put_request-300x187.jpg 300w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114856/put_request-320x200.jpg 320w" sizes="(max-width: 741px) 100vw, 741px" /></a></p>
+
+<p>続いてこのwebshellにcmdというqueryで実行させるコマンドをパラメーターとして渡して実行されることを確認します。</p>
+
+<p><a href="http://www.uranari.io/tech/346/attachment/cmd_request/" rel="attachment wp-att-352"><img src="https://www.uranari.io/wp-content/uploads/2017/11/cmd_request.jpg" alt="" width="572" height="347" class="alignnone size-full wp-image-352" srcset="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115145/cmd_request.jpg 572w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115145/cmd_request-300x182.jpg 300w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115145/cmd_request-320x194.jpg 320w" sizes="(max-width: 572px) 100vw, 572px" /></a></p>
+
+<p>実行結果です。</p>
+
+<p><a href="http://www.uranari.io/tech/346/attachment/cmd_response/" rel="attachment wp-att-353"><img src="https://www.uranari.io/wp-content/uploads/2017/11/cmd_response.jpg" alt="" width="522" height="617" class="alignnone size-full wp-image-353" srcset="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115212/cmd_response.jpg 522w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115212/cmd_response-254x300.jpg 254w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115212/cmd_response-320x378.jpg 320w" sizes="(max-width: 522px) 100vw, 522px" /></a></p>
+
+<p>このDockerイメージはDockerHubの自分のリポジトリで公開しているので誰でも試すことができます。</p>
+
+<p>今後もこんな感じで脆弱性の検証用のイメージを作成してDockerHubで公開していきます。</p>
+
+<p>脆弱性の検証で一番大変なのって検証用の環境を作成することなので誰かが作って公開すれば他の人はそれを流用すればいいですね。</p>
+
+<h2 id="おまけ">おまけ</h2>
+
+<p>・ぶっちゃけるとDockerHubから直接脆弱なバージョンのTomcatのイメージ落としてきてweb.xmlを書き換えるだけのほうが早い。</p>
+
+<p>・DockerfileのENTRYPOINTで/usr/local/tomcat/bin/startup.sh を指定してコンテナ作成時にTomcatも立ち上がるようにしたかったが作成したコンテナがすぐに落ちてしまった。</p>
+
+<p>原因が分かってないので知ってる人は教えて欲しい。</p>
+
+            </div>
+        </div>
+	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="footer-content">
+		  <div class="pure-menu pure-menu-horizontal">
+              <ul>
+			      
+				  
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+              </ul>
+              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
+          </div>
+		  
+		</div>
+	  </div>
+      <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+<script src="https://uranari.io/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://uranari.io/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#toggle-btn").click(function(){
+    $("#toggle-content").toggle();
+    if($(this).html() === "☰") {
+        $(this).html("X")
+    } else {
+        $(this).html("☰")
+    }
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".desktop").removeAttr("style");
+    }
+  });
+</script>
+
+</body>
+</html>
+

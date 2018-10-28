@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>S2-048(CVE-2017-9791)を検証してみる - uranari dayo</title>
+  <meta name="description" content="S2-048(CVE-2017-9791)を検証してみる">
+  <meta name="author" content="">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://uranari.io/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+  
+  <link rel="stylesheet" href="https://uranari.io/css/custom.css">
+
+  
+  
+  <link rel="stylesheet" href="https://uranari.io/highlight/styles/default.css">
+  
+  <script src="https://uranari.io/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <meta name="generator" content="Hugo 0.40.1" />
+  
+</head>
+<body>
+
+<div class="header pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
+            
+            <a href="https://uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <ul class="pure-menu-list">
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about/" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile pure-menu nav-menu">
+            <a href="https://uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="#" id="toggle-btn">&#9776;</a>
+            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
+                
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
+
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2017-07-07</time>
+		            
+                    
+                    |
+                    
+                    
+
+                    
+                    categories:<a href="https://uranari.io/categories/security">security</a> 
+                    
+
+                    
+                </p>
+                <h1>S2-048(CVE-2017-9791)を検証してみる</h1>
+            </div>
+
+            <div class="post-content">
+                <p>Struts2の脆弱性がアナウンスされていたので検証してみました。またRCEみたいです。</p>
+
+<p><a href="https://cwiki.apache.org/confluence/display/WW/S2-048">https://cwiki.apache.org/confluence/display/WW/S2-048</a></p>
+
+<p>既にというかcwikiの該当のページが公開される前からチラホラと噂が流れてて公開とほぼ同じかそれより先のタイミングで攻撃コードも出回りはじめていたのでなんだかなーという気持ち。</p>
+
+<p>ちなみにStruts 2.3.32で検証しました。</p>
+
+<p><img src="https://www.uranari.io/wp-content/uploads/2017/07/blog.png" alt="" width="1009" height="558" class="alignnone size-full wp-image-264" srcset="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08054322/blog.png 1009w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08054322/blog-300x166.png 300w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08054322/blog-768x425.png 768w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08054322/blog-320x177.png 320w" sizes="(max-width: 1009px) 100vw, 1009px" /></p>
+
+<p>偉い人が怖いので一部関係無い箇所も黒く塗りつぶしていますがidコマンドの実行結果が帰ってきていることが分かるかと思います。</p>
+
+<p>上記のリンク先にも記載されていますが、今回の脆弱性はS2-045のときのようにStruts2を使用していれば存在しないページにも効くわけではなく、Struts 1 pluginを利用している場合のみ脆弱性が存在しているようです。</p>
+
+<p>簡単にまとめると脆弱性が存在するのはStruts 2.3.xを使っていて且つStruts 1 pluginを利用している場合のみということになりそうです。</p>
+
+<p><span class="strike">なお現段階(7月8日 AM 6:00)では修正バージョンは正式にはリリースされていませんが、Struts2.3.33がGitHubには公開されていますしコミットログを見ると2週間ほど前に修正されてるようなのでアップデートしても問題ないか検証はできるかもしれません。</span></p>
+
+<p><a href="https://github.com/apache/struts/tree/STRUTS_2_3_33">https://github.com/apache/struts/tree/STRUTS_2_3_33</a></p>
+
+<p>アプリケーションの実装の問題なのでおそらくパッチは出ないか出たとしても修正されるのは付属しているサンプルアプリケーションになると思います。</p>
+
+<p>&lt;追記&gt;</p>
+
+<p>自分はTocat7の上でStruts2.3.32を動かして検証しましたが、検証した際にTomcatのログを確認したところ以下のようなエラーが吐き出されていました。</p>
+
+<p>アプリケーションの実装や使用するミドルウェア、実行されるOGNL式によってエラーの内容は変わると思いますが、同じような環境で自分が試したのと同じ攻撃コードが実行された場合は同じようなエラーログが吐かれると思うので注意が必要です。</p>
+
+<p>/usr/local/tomcat7/logs/localhost.2017-07-08.log</p>
+
+<p><img src="https://www.uranari.io/wp-content/uploads/2017/07/log.png" alt="" width="1252" height="418" class="alignnone size-full wp-image-275" srcset="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08160900/log.png 1252w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08160900/log-300x100.png 300w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08160900/log-768x256.png 768w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08160900/log-1024x342.png 1024w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/07/08160900/log-320x107.png 320w" sizes="(max-width: 1252px) 100vw, 1252px" /></p>
+
+            </div>
+        </div>
+	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="footer-content">
+		  <div class="pure-menu pure-menu-horizontal">
+              <ul>
+			      
+				  
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+              </ul>
+              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
+          </div>
+		  
+		</div>
+	  </div>
+      <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+<script src="https://uranari.io/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://uranari.io/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#toggle-btn").click(function(){
+    $("#toggle-content").toggle();
+    if($(this).html() === "☰") {
+        $(this).html("X")
+    } else {
+        $(this).html("☰")
+    }
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".desktop").removeAttr("style");
+    }
+  });
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  
+  <meta charset="utf-8">
+  <title>2017年2月のssmjpに参加してきたよ - uranari dayo</title>
+  <meta name="description" content="2017年2月のssmjpに参加してきたよ">
+  <meta name="author" content="">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://uranari.io/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+  
+  <link rel="stylesheet" href="https://uranari.io/css/custom.css">
+
+  
+  
+  <link rel="stylesheet" href="https://uranari.io/highlight/styles/default.css">
+  
+  <script src="https://uranari.io/highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <meta name="generator" content="Hugo 0.40.1" />
+  
+</head>
+<body>
+
+<div class="header pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="desktop pure-menu pure-menu-horizontal nav-menu">
+            
+            <a href="https://uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <ul class="pure-menu-list">
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about/" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mobile pure-menu nav-menu">
+            <a href="https://uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="#" id="toggle-btn">&#9776;</a>
+            <ul class="pure-menu-list" id="toggle-content" style="display:none;">
+                
+				
+                <li class="pure-menu-item">
+                    <a href="https://uranari.io/about" class="pure-menu-link">About</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
+
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2017-02-21</time>
+		            
+                    
+                    |
+                    
+                    
+
+                    
+                    categories:<a href="https://uranari.io/categories/ssmjp">ssmjp</a> 
+                    
+
+                    
+                </p>
+                <h1>2017年2月のssmjpに参加してきたよ</h1>
+            </div>
+
+            <div class="post-content">
+                
+
+<p>2017年2月のssmjpに参加してきました。</p>
+
+<p>4人の発表者がいてタイトルはそれぞれ以下の通り</p>
+
+<div id="toc_container" class="toc_transparent no_bullets">
+  <p class="toc_title">
+    目次
+  </p>
+  
+  <ul class="toc_list">
+    <li>
+      <a href="#_Tomohisa_Ishikawa"><span class="toc_number toc_depth_1">1</span> 米国のペネトレーションテスト事情 Tomohisa Ishikawa</a>
+    </li>
+    <li>
+      <a href="#RSAN_y_hag"><span class="toc_number toc_depth_1">2</span> RSA暗号運用でやってはいけないNのこと @y_hag</a>
+    </li>
+    <li>
+      <a href="#Hash_abend"><span class="toc_number toc_depth_1">3</span> 君のHashは @abend</a>
+    </li>
+    <li>
+      <a href="#_delphinz"><span class="toc_number toc_depth_1">4</span> サイバー考古学 @delphinz</a>
+    </li>
+    <li>
+      <a href="#i"><span class="toc_number toc_depth_1">5</span> 感想</a>
+    </li>
+  </ul>
+</div>
+
+<h2 id="span-id-tomohisa-ishikawa-米国のペネトレーションテスト事情-br-tomohisa-ishikawa-span"><span id="_Tomohisa_Ishikawa">米国のペネトレーションテスト事情 </br>Tomohisa Ishikawa</span></h2>
+
+<p>最近のアメリカでのペネトレーションテスト事情についてのLTでした。</p>
+
+<p>日本だとペネトレーションテスト＝脆弱性診断ですがアメリカだとRedTeamが主流になっているとのこと。</p>
+
+<p>RedTeamというとセキュリティ業界以外の人にはわかりづらいと思うので日本語に直すと「侵入テスト」といったところでしょうか。</p>
+
+<p>日本のペネトレーションテストはWebアプリケーションやミドルウェアなどの外部に公開されているサービスに脆弱性があるかをブラックボックスでテストするのが一般的ですが、アメリカのRedTeamでは実際に情報を持ち出すことが可能かをテストしています。</p>
+
+<p>日本のペネトレーションテストは脆弱性の有無を調査することが目的ですが、アメリカのペネトレーションテストは情報を窃取することが可能かを実際にやってみて調査することが目的だと感じました。</p>
+
+<p>RedTeamはdigital、social、physicalの3つの分野にまたがってテストが実施されているそうです。</p>
+
+<p>digitalはネットワーク経由で侵入できるかや、socialはOSINT等でその企業や従業員の情報を収集し、電話やメールを使い従業員や役員、関係者になりすましてオペレーター等から企業の機密情報を聞き出せるかや、physicalは鍵穴をピッキングして建物や施設内に侵入したり偽の従業員証を作成して従業員になりすまして施設内に侵入し、情報を持ち出すことができるかをテストしているそうです。</p>
+
+<p>RedTeamは最終的に情報を持ち出すことができるかをテストしており、その過程で警備員に取り押さえられたり警察に通報されて警察沙汰になったりする可能性も想定されているそうです。</p>
+
+<p>さらに、digitalは従来通りハッキングに長けた人が実施したり、socialは心理学者を雇ったりphysicalは鍵屋を雇ったりと映画みたいにそれぞれの専門分野の人が集まってチームを組んで実施したりと本格的です。</p>
+
+<p>アメリカで主流になっているということは日本でも2〜3年後には主流になると思います&#8230;と言いたいところですがRedTeamは実際に通常業務を行なっている環境で期間も半年など長期間かけて従業員や管理者も目の前で起こっていることが実際のインシデントなのかRedTeamによる侵入テストなのか判断できない状態で実施するので業務に影響が出ることを極端に嫌がる日本では受け入れられない気がします。</p>
+
+<h2 id="span-id-rsan-y-hag-rsa暗号運用でやってはいけないnのこと-br-y-hag-span"><span id="RSAN_y_hag">RSA暗号運用でやってはいけないNのこと </br>@y_hag</span></h2>
+
+<p>[slideshare id=72368516&amp;doc=sonickunrsa-170220153940]</p>
+
+<p>次はRSA暗号の運用についてのLTでした。</p>
+
+<p>この話は筆者が暗号は素因数分解が困難（素因数分解に時間がかかりすぎて現実的な時間では解けない）ことが前提になっているという程度にしか理解していないので詳しく解説できません。。。</p>
+
+<p>前提としてRSA暗号のアルゴリズムと768bitまでの鍵長の鍵は既に解かれていて、1024bitもそろそろ危険だとして非推奨になっていることを説明されてから、公開鍵暗号方式を使用して秘密鍵と公開鍵を生成する際や、平文を暗号化する際に気をつけておくべきポイントについてお話されてました。</p>
+
+<p>以下にRSA暗号を運用する際に気をつけるべきポイントとして挙げられていた点をいくつか紹介します。</p>
+
+<p>・合成数 n を生成する p と q の値が小さすぎてはいけない</p>
+
+<p>・p と q の値が近すぎてはいけない</p>
+
+<p>・p と q の値にメルセンヌ素数やフェルマー素数を使ってはいけない</p>
+
+<p>・公開鍵を複数作成するときに同じ素数を使いまわしてはいけない</p>
+
+<p>・任意の暗号文を複合した偶奇1bitを知られてはいけない</p>
+
+<p>・上位ビットが共通する２つの平文の暗号文を知られてはいけない</p>
+
+<p>・素数ｐの上位または下位bitを知られてはいけない</p>
+
+<p>他にもいくつか紹介されていましたが理解とメモを取るスピードが追いつきませんでした。</p>
+
+<p>暗号は今年勉強するテーマの1つですが、暗号の種類とそれぞれの計算量的な強度、使用されるシチュエーションくらいで理論的な部分まではちょっと踏み込めないかな。</p>
+
+<h2 id="span-id-hash-abend-君のhashは-br-abend-span"><span id="Hash_abend">君のHashは </br>@abend</span></h2>
+
+<p>[slideshare id=72367571&amp;doc=hash20170220-170220151618]</p>
+
+<p>Windowsのアカウント管理で用いられているLMハッシュとNTLMハッシュのお話。</p>
+
+<p>LMハッシュはさすがにもう使われていないでしょということで主にNTLMハッシュのお話です。</p>
+
+<p>Windowsではアカウントのパスワードハッシュを認証に使用できますがsaltを用いないため、同じ文字列を用いると同じハッシュ値になります。</p>
+
+<p>これを利用してWindowsでパスワードを知らなくても認証を突破できる「Pass the Hash」という攻撃手法があります。</p>
+
+<p>しかし、WindowsにはUser Account Control(UAC)という機能があり、管理者権限が必要な動作やシステムに変更を加える動作をする際に再度確認をする機能があり、仮に管理者アカウントののユーザー名とパスワードのNTLMハッシュを取得できたとしてもそのままコマンドが実行されるわけではありません。(何かプログラムをインストールしようとした際にポップアップが表示されて「はい」を押さないといけないアレです)</p>
+
+<p>ただWindowsには、Windowsをインストールした際にデフォルトで作成されるローカルの「Administrator」というアカウントがあり、このアカウントでシステムに管理者権限が必要な動作やシステムへの変更を加える際はUACが働かず、このアカウントのNTLMハッシュが抜き取られた場合は外部からの攻撃に気づきにくく攻撃者のコマンドがそのまま実行されてしまうそうです。</p>
+
+<p>なのでWindowsをインストールした際には別の管理者アカウントを作成し、「Administrator」は削除することをお勧めされていました。</p>
+
+<p>またWindows10以降の世代ではSAMファイルのNTLMハッシュがnullになっていたり、メモリ上から情報を抜き取ろうとしても「LSA Protection Mode」が有効になっていればメモリにアクセスですることが困難になるためそれまでの世代よりは安全性が高いのではないかとのことです。</p>
+
+<p>発表のテンポとネタが面白すぎるのは卑怯だと思います。</p>
+
+<h2 id="span-id-delphinz-サイバー考古学-br-delphinz-span"><span id="_delphinz">サイバー考古学 </br>@delphinz</span></h2>
+
+<p>[slideshare id=72391760&amp;doc=2017-170221033514]</p>
+
+<p>最後は田端さんのインターネットの歴史にまつわるお話です。</p>
+
+<p>大学の講義とかだとインターネットの歴史として原型となったARPANETの話から利用が学術機関や商用へと広がっていった話は聞くと思いますが、これはその過程でインターネット上での自由のために戦った人たちや現在のコンピューターで使われているマウスやGUIの概念を発明した人たちのお話でした。</p>
+
+<p>このスライドは近所の中学生が王様のヴァイキングを読んでハッカーに憧れてプログラミングを教えてほしいと頼まれたので、その前にインターネットについて知ってもらおうと作成したスライドだそうです。近所の中学生のためにここまでのスライドを作成する熱意がもう田端さん自身もHackerであることの証だなと思いました。</p>
+
+<p>田端さん自身も「自由とは何か」を探してアドリア海の真珠と呼ばれるクロアチアのドゥブロヴニクに行ったことがあるそう。</p>
+
+<p>ここは「ドゥブヴクニクを見ずして天国を語るなかれ」と言われるほど美しい町ですが、「いかなる黄金をもってしても、自由を売り渡してはならない」と刻まれた石碑があるほど自由のために戦ってきた町であり、1991年には非武装地だったにも関わらずユーゴスラビア人民軍の攻撃に7ヶ月にも耐え、文字通り自由のために命をかけてきた町だそうで、我々の言う自由と彼らの言う自由の重みの違いを感じます。</p>
+
+<p>技術的にHackできるじゃなくて、今のインターネットの文化の系譜を知ることができる、Hacker文化で言うところのHackerになりたい人向けのLTだったのではないでしょうか。</p>
+
+<h2 id="span-id-i-感想-span"><span id="i">感想</span></h2>
+
+<p>ssmjpの凄いところは緩い勉強という名目でありながら毎回濃い人の濃い発表が聞けるところじゃないでしょうか。</p>
+
+<p>運営が濃いせいか、コミュニティ自体も濃いので参加してて楽しいですね。</p>
+
+<p>懇親会でPoserShellで苦しんでるフレンズがいて話したのですが、あれ本当に謎の言語</p>
+
+            </div>
+        </div>
+	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+<div class="footer pure-g">
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+    <div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="footer-content">
+		  <div class="pure-menu pure-menu-horizontal">
+              <ul>
+			      
+				  
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+                  
+          
+              </ul>
+              <a href="#" class="pure-menu-heading pull-right" id="gototop-btn">↑↑</a>
+          </div>
+		  
+		</div>
+	  </div>
+      <div class="pure-u-1-24 pure-u-md-1-6"></div>
+</div>
+
+
+<script src="https://uranari.io/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://uranari.io/js/jquery.timeago.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $(function(){
+    $("time.timeago").timeago();
+  })
+  $("#toggle-btn").click(function(){
+    $("#toggle-content").toggle();
+    if($(this).html() === "☰") {
+        $(this).html("X")
+    } else {
+        $(this).html("☰")
+    }
+  });
+  $(window).resize(function(){
+    if(window.innerWidth > 768) {
+      $(".desktop").removeAttr("style");
+    }
+  });
+</script>
+
+</body>
+</html>
+

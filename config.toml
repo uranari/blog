@@ -1,0 +1,9 @@
+baseURL = "https://uranari.io/"
+languageCode = "ja"
+title = "uranari dayo"
+theme = "nofancy"
+canonifyurls = true
+
+[params]
+  description = "旅と写真とtech"
+  author = "uranari"
