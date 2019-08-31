@@ -2,21 +2,56 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aws on uranari dayo</title>
-    <link>https://uranari.io/categories/aws/</link>
+    <link>https://www.uranari.io/categories/aws/</link>
     <description>Recent content in Aws on uranari dayo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 02 Feb 2017 12:20:02 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 May 2019 11:20:49 +0900</lastBuildDate>
     
-	<atom:link href="https://uranari.io/categories/aws/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.uranari.io/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>AWS Security Monitoring -IAM-</title>
+      <link>https://www.uranari.io/tech/aws/aws-security-monitoring-iam/</link>
+      <pubDate>Wed, 01 May 2019 11:20:49 +0900</pubDate>
+      
+      <guid>https://www.uranari.io/tech/aws/aws-security-monitoring-iam/</guid>
+      <description>AWS Security Monitoring, that was introduced some checkpoint on some web sites.
+But i hava not seen so much &amp;ldquo;how check&amp;rdquo;, i will introduce example on use Cloudwatch Logs Insight and CloudTrail to check IAM rule.
+Narrow down IAM event First step, narrow down only IAM event.
+sample query
+fields eventSource, @timestamp | filter eventSource = &amp;quot;iam.amazonaws.com&amp;quot;  
+Create New User example case, if you were stolen aws credential, attacker may create new user in use that credential.</description>
+    </item>
+    
+    <item>
+      <title>Amazon CloudWatch Logs Insights で SIEM ぽいことをやってみる</title>
+      <link>https://www.uranari.io/tech/security/aws-siem-for-insights/</link>
+      <pubDate>Thu, 03 Jan 2019 12:28:36 +0900</pubDate>
+      
+      <guid>https://www.uranari.io/tech/security/aws-siem-for-insights/</guid>
+      <description>AWS re:Ivent 2018 では AWS Security Hub や KMS Custom Key Store などの新しいセキュリティ関連のマネージドサービスが発表されましたが、個人的に一番熱かったのが Amazon CloudWatch Logs Insights だったので紹介しておきます。
+Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをインタラクティブに検索できるものですが、概要だけ聞いたときに「それ SIEM じゃん」と思ったので、実際に SIEM として使えるか試してみました。
+ここでは例として CloudTrail のログを分析対象とします。
+あらかじめ CloudTrail のログを CloudWatch へ転送する設定を別途実施しておいてください。
+今回は CloudTrail のログから S3 の特定のバケットに オブジェクトが作成された際にバケット名やオブジェクト名を絞る方法を説明します。
+まず始めに CloudTrail のログを分析するときはログを eventSouce のフィールド毎に分けることをおすすめします。
+話が脱線しますが、こういった SIEM のルールを作る際は上記の「S3のバケットにオブジェクトが作成された際のバケット名やオブジェクト名を知りたい」のようにルールの目的やアラートを発出する際の条件とそれが検知された際の調査項目などをあらかじめ整理しておくことをおすすめします。
+典型的なダメダメなパターンは、とりあえず GuardDuty を ON にしたけどアラート飛んできてもこれがだめなものか分からないし、何を調査したらいいか分からないといったパターンです。
+それアラート設定してる意味ないじゃんとなります。
+話を戻して CloudWatch Logs Insight でのログの絞り込み方法です。
+まず eventSource ごとに分けることをおすすめしましたので eventSource だけを表示させます。
+
+ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</description>
+    </item>
+    
+    <item>
       <title>AWS LightsailでWordPressを立ち上げるときに/bitnami/index.htmlを表示させない</title>
-      <link>https://uranari.io/tech/aws/42/</link>
+      <link>https://www.uranari.io/tech/aws/42/</link>
       <pubDate>Thu, 02 Feb 2017 12:20:02 +0000</pubDate>
       
-      <guid>https://uranari.io/tech/aws/42/</guid>
+      <guid>https://www.uranari.io/tech/aws/42/</guid>
       <description>このblogはAWS Lightsailで運用していますが、立ち上げるときに気をつけたことを書いておきます。
 AWS LightsailのWordPressでデフォルト状態のままだと http://ip[domain]/bitnami/でアクセスするとWordPressのユーザーアカウントが記載されたページが表示されます。
 パスワードは記載されていませんが精神衛生上よろしくないので/bitnami/にアクセスがあるとトップページにリダイレクトさせたいと思います。

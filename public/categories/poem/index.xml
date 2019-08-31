@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Poem on uranari dayo</title>
-    <link>https://uranari.io/categories/poem/</link>
+    <link>https://www.uranari.io/categories/poem/</link>
     <description>Recent content in Poem on uranari dayo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <lastBuildDate>Sun, 31 Dec 2017 05:05:39 +0000</lastBuildDate>
     
-	<atom:link href="https://uranari.io/categories/poem/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.uranari.io/categories/poem/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>今年1年でも振り返ってみる</title>
-      <link>https://uranari.io/poem/360/</link>
+      <link>https://www.uranari.io/poem/360/</link>
       <pubDate>Sun, 31 Dec 2017 05:05:39 +0000</pubDate>
       
-      <guid>https://uranari.io/poem/360/</guid>
+      <guid>https://www.uranari.io/poem/360/</guid>
       <description>年末年始にお休みをもらうことに成功したのでたまにはblogでも書こうかと。
 さて自分は今年何をしたのか振り返ってみたものの、何をしたんだっけ？といった感じです。
 まず今年どこに行ったか振り返ってみる。
@@ -51,10 +51,10 @@ blogやtwitterで色んな人が言っているがそれを他人事じゃない
     
     <item>
       <title>なぜWebサイトをHTTPSに対応させなければならないのか</title>
-      <link>https://uranari.io/poem/308/</link>
+      <link>https://www.uranari.io/poem/308/</link>
       <pubDate>Tue, 22 Aug 2017 03:34:05 +0000</pubDate>
       
-      <guid>https://uranari.io/poem/308/</guid>
+      <guid>https://www.uranari.io/poem/308/</guid>
       <description>GoogleのChromeがChrome62から入力欄を持つ非HTTPSのサイト全てに警告を出すということがニュースになっていたので、その経緯について簡単に書いておきます。
 ただ、これから書くことは昨年のSymantecの子会社による不正な証明書の発行に関するニュースや記事を追っていた際についでに拾った情報をまとめて推測してみたらこういう話になったというだけで、その関係で一部情報元が確認できなかった情報もありますし、Googleがはっきりとこうだと言っているわけでもありませんので読み物として読んでみてください。
 業界全体の流れとしてそういう方向に向かっているというだけの話です。
@@ -86,10 +86,10 @@ Let&amp;#8217;sEncryptは全てのWebのトラフィックをHTTPSに置き換�
     
     <item>
       <title>サイバーセキュリティはだれのもの？</title>
-      <link>https://uranari.io/poem/181/</link>
+      <link>https://www.uranari.io/poem/181/</link>
       <pubDate>Thu, 09 Mar 2017 17:16:08 +0000</pubDate>
       
-      <guid>https://uranari.io/poem/181/</guid>
+      <guid>https://www.uranari.io/poem/181/</guid>
       <description>最近思っていることを書いておこうかなと。
 将来自分の考え方が変わったときでもこの記事を振り返って「あの頃はこう思ってたなー」と振り返れるように。
 これから書くことは筆者の個人的な観測範囲での話です。
@@ -118,10 +118,10 @@ Let&amp;#8217;sEncryptは全てのWebのトラフィックをHTTPSに置き換�
     
     <item>
       <title>初投稿。</title>
-      <link>https://uranari.io/poem/17/</link>
+      <link>https://www.uranari.io/poem/17/</link>
       <pubDate>Sun, 22 Jan 2017 04:23:10 +0000</pubDate>
       
-      <guid>https://uranari.io/poem/17/</guid>
+      <guid>https://www.uranari.io/poem/17/</guid>
       <description>初投稿です。 テストを兼ねています。 とりあえずなんとなくブログをはじめてみようと思ったのでやってみる。</description>
     </item>
     
