@@ -123,13 +123,6 @@ userIdentity.userName as requestUser
 ```
 <a href="https://dtiemu0c7gxsz.cloudfront.net/image/AWS-Security-Monitoring-IAM/DetachUserPolicy.jpg" data-rel="lightbox-gallery-0QZwyEn5" data-rl\_title="" data-rl\_caption="" title=""><img src="https://dtiemu0c7gxsz.cloudfront.net/image/AWS-Security-Monitoring-IAM/DetachUserPolicy.jpg" alt="" width="1000" height="550" sizes="(max-width: 1270px) 100vw, 1270px" /></a> 
 
-## EnableMFADevicex
-## CreateVirtualMFADevice
-## CreateAccessKey
-## UploadSSHPublicKey
-## EnableMFADevice
-
-
 
 ## AssumeRole
 AssuleRole is not exactly IAM, but it is convenient monitoring together IAM.  
