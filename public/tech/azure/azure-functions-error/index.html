@@ -4,8 +4,8 @@
 <head>
   
   <meta charset="utf-8">
-  <title>Categories - uranari dayo</title>
-  <meta name="description" content="Categories">
+  <title>AzureでFunctionsをデプロイした時に出るreceiverConnectionStringというエラーについて - uranari dayo</title>
+  <meta name="description" content="AzureでFunctionsをデプロイした時に出るreceiverConnectionStringというエラーについて">
   <meta name="author" content="uranari">
 
   
@@ -69,83 +69,78 @@
     </div>
     <div class="pure-u-1-24 pure-u-md-1-6"></div>
 </div>
+
 <div class="pure-g">
-<div class="pure-u-1-24 pure-u-md-5-24"></div>
-<div class="pure-u-11-12 pure-u-md-5-8">
-	<p class="posts-name">Categories:</p>
-	<div class="post-content">
-		<ul class="posts">
-		
-		
-			<li>
-				<a href="security">security</a>
-				<span>&#40;10&#41;</span>
-			</li>
-		
-			<li>
-				<a href="tech">tech</a>
-				<span>&#40;7&#41;</span>
-			</li>
-		
-			<li>
-				<a href="aws">aws</a>
-				<span>&#40;4&#41;</span>
-			</li>
-		
-			<li>
-				<a href="poem">poem</a>
-				<span>&#40;4&#41;</span>
-			</li>
-		
-			<li>
-				<a href="trip">trip</a>
-				<span>&#40;4&#41;</span>
-			</li>
-		
-			<li>
-				<a href="ssmjp">ssmjp</a>
-				<span>&#40;3&#41;</span>
-			</li>
-		
-			<li>
-				<a href="azure">azure</a>
-				<span>&#40;1&#41;</span>
-			</li>
-		
-			<li>
-				<a href="azure-functions">azure-functions</a>
-				<span>&#40;1&#41;</span>
-			</li>
-		
-			<li>
-				<a href="gallery">gallery</a>
-				<span>&#40;1&#41;</span>
-			</li>
-		
-			<li>
-				<a href="hyogo">hyogo</a>
-				<span>&#40;1&#41;</span>
-			</li>
-		
-			<li>
-				<a href="iwate">iwate</a>
-				<span>&#40;1&#41;</span>
-			</li>
-		
-			<li>
-				<a href="saitama">saitama</a>
-				<span>&#40;1&#41;</span>
-			</li>
-		
-			<li>
-				<a href="toyama">toyama</a>
-				<span>&#40;1&#41;</span>
-			</li>
-		
-		</ul>
+    <div class="pure-u-1-24 pure-u-md-5-24"></div>
+	<div class="pure-u-11-12 pure-u-md-5-8">
+        <div class="post">
+
+            <div class="post-title">
+                <p class="footnote">
+                    <time class="">2020-04-16</time>
+		            
+                    
+                    |
+                    
+                    
+
+                    
+                    categories:<a href="https://www.uranari.io/categories/azure">azure</a> <a href="https://www.uranari.io/categories/azure-functions">azure-functions</a> 
+                    
+
+                    
+                </p>
+                <h1>AzureでFunctionsをデプロイした時に出るreceiverConnectionStringというエラーについて</h1>
+            </div>
+
+            <div class="post-content">
+                
+
+<h3 id="azure-functions-の-receiverconnectionstring-エラーについて">Azure Functions の receiverConnectionString エラーについて</h3>
+
+<p>Azure で Azure Functions をデプロイした際に下記の画像のようなエラーが出ることがあります。</p>
+
+
+<figure class="center">
+    
+        <img src="https://www.uranari.io/images/azure-functions-error/azure_deploy.JPG" width="640" height="1280" />
+    
+    
+</figure>
+
+
+<p>上記のエラーで結構はまってしまったので解決方法を記載しておきます。</p>
+
+<p>解決方法なんですが、自分の場合は EventHub をトリガーにしているので <code>local.settins.json</code> に記載されている EventHub の接続文字列を</p>
+
+
+<figure class="center">
+    
+        <img src="https://www.uranari.io/images/azure-functions-error/local_serrings.JPG" width="640" height="1280" />
+    
+    
+</figure>
+
+
+<p>下記のアプリケーション設定に設定します。</p>
+
+
+<figure class="center">
+    
+        <img src="https://www.uranari.io/images/azure-functions-error/app_config.JPG" width="640" height="1280" />
+    
+    
+</figure>
+
+
+<p>以上！！</p>
+
+            </div>
+        </div>
 	</div>
+    <div class="pure-u-1-24 pure-u-md-1-6"></div>
 </div>
-<div class="pure-u-1-24 pure-u-md-1-6"></div>
+
 <div class="footer pure-g">
     <div class="pure-u-1-24 pure-u-md-5-24"></div>
     <div class="pure-u-11-12 pure-u-md-5-8">

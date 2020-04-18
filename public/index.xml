@@ -6,10 +6,23 @@
     <description>Recent content on uranari dayo</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Mon, 10 Feb 2020 13:06:19 +0900</lastBuildDate>
+    <lastBuildDate>Thu, 16 Apr 2020 22:08:41 +0900</lastBuildDate>
     
 	<atom:link href="https://www.uranari.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AzureでFunctionsをデプロイした時に出るreceiverConnectionStringというエラーについて</title>
+      <link>https://www.uranari.io/tech/azure/azure-functions-error/</link>
+      <pubDate>Thu, 16 Apr 2020 22:08:41 +0900</pubDate>
+      
+      <guid>https://www.uranari.io/tech/azure/azure-functions-error/</guid>
+      <description>Azure Functions の receiverConnectionString エラーについて Azure で Azure Functions をデプロイした際に下記の画像のようなエラーが出ることがあります。
+ 上記のエラーで結構はまってしまったので解決方法を記載しておきます。
+解決方法なんですが、自分の場合は EventHub をトリガーにしているので local.settins.json に記載されている EventHub の接続文字列を
+ 下記のアプリケーション設定に設定します。
+ 以上！！</description>
+    </item>
     
     <item>
       <title>privacypolicy</title>
