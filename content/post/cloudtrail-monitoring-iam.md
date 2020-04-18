@@ -13,7 +13,7 @@ categories:
   - security
 ---
 
-CloudTrail 見てますか？ 
+### CloudTrail 見てますか？ 
 
 AWS を利用するうえでのセキュリティ対策として CloudTrail を有効にすることが色んな記事で紹介されていますが、皆さんちゃんと見ていますか？ 
 
@@ -25,7 +25,7 @@ AWS を利用するうえでのセキュリティ対策として CloudTrail を�
 また、CloudTrail のログでは、そのイベントが失敗したか成功したかについてはログに `errorcode` や `errormessage` のフィールドに値が入っているかどうかで判断できます。  
 これらのフィールドに値が入っている場合はそのイベントは失敗しており、その理由がそれらのフィールドに記録されます。  
 
-{{< figure src="/images/CloudTrail-Monitoring-IAM/trail.png" class="center" width="1280" height="2560" >}}
+{{< figure src="/images/CloudTrail-Monitoring-IAM/trail.png" class="center" width="1280" height="2560" caption="cloudtrailの画面 View event を開くと生ログが見れる" >}}
 
 ### ConsoleLogin  
 名前の通り、AWS の Web コンソール にログインを試みた際に記録されるイベント。  

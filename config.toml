@@ -6,4 +6,8 @@ canonifyurls = true
 
 [params]
   description = "旅と写真とtech"
-  author = "uranari"
+
+[author]
+  name = "uranari"
+  gaID = "UA-92817018-1"
+  twitter = "@uranariz"
