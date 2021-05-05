@@ -4,7 +4,7 @@
 <head>
   
   <meta charset="utf-8">
-  <title>Hyper-Vでレガシーネットワークアダプターを使うときの設定 - uranari dayo</title>
+  <title>Hyper-Vでレガシーネットワークアダプターを使うときの設定 - uranari</title>
   <meta name="description" content="Hyper-Vでレガシーネットワークアダプターを使うときの設定">
   <meta name="author" content="uranari">
 
@@ -31,7 +31,7 @@
   <script src="https://www.uranari.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <meta name="generator" content="Hugo 0.40.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
 </head>
 
@@ -41,7 +41,7 @@
     <div class="pure-u-11-12 pure-u-md-5-8">
         <div class="desktop pure-menu pure-menu-horizontal nav-menu">
             
-            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari</a>
             <ul class="pure-menu-list">
                 
                 <li class="pure-menu-item">
@@ -53,7 +53,7 @@
             </ul>
         </div>
         <div class="mobile pure-menu nav-menu">
-            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari</a>
             <a href="#" id="toggle-btn">&#9776;</a>
             <ul class="pure-menu-list" id="toggle-content" style="display:none;">
                 
@@ -95,26 +95,33 @@
 
             <div class="post-content">
                 <p>自分用メモ</p>
-
-<p>&nbsp;</p>
-
+<p> </p>
 <p>仮想マシン作るたびにこの設定しないといけないので</p>
-
 <p>Hyper-V上で仮想マシンをたてるときにレガシーネットワークアダプターを使わざるをえないことがあるのでそのときのネットワーク回りの設定の注意点</p>
-
 <p>まずハードウェアの追加でレガシーネットワークアダプターを追加</p>
-
-<p><a href="http://www.uranari.io/wp-content/uploads/2017/05/Legacy.png" data-rel="lightbox-gallery-isceCH9s" data-rl\_title="" data-rl\_caption="" title=""><img class="alignnone size-full wp-image-202" src="http://www.uranari.io/wp-content/uploads/2017/05/Legacy.png" alt="" width="214" height="106" /></a></p>
+<figure class="center"><img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/05/01160001/Legacy.png" width="640" height="320"/>
+</figure>
 
 <p>MACアドレスは固定に</p>
-
-<p><a href="http://www.uranari.io/wp-content/uploads/2017/05/mac\_bokashi.png" data-rel="lightbox-gallery-isceCH9s" data-rl\_title="" data-rl_caption="" title=""><img class="alignnone size-full wp-image-203" src="http://www.uranari.io/wp-content/uploads/2017/05/mac_bokashi.png" alt="" width="426" height="131" srcset="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/05/01160405/mac_bokashi.png 426w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/05/01160405/mac_bokashi-300x92.png 300w, https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/05/01160405/mac_bokashi-320x98.png 320w" sizes="(max-width: 426px) 100vw, 426px" /></a></p>
+<figure class="center"><img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/05/01160405/mac_bokashi.png" width="640" height="320"/>
+</figure>
 
 <p>仮想マシン側(今回はCentOS)のinterfaceに割り振ったMACアドレスを記載する</p>
-
 <p>それ以外は通常通り設定</p>
-
-<pre class="lang:default decode:true " title="/etc/sysconfig/network-scripts/ifcfg-eth0">/etc/sysconfig/network-scripts/ifcfg-eth0
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">9
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">/etc/sysconfig/network-scripts/ifcfg-eth0
 
 DEVICE=eth0
 HWADDR=XX:XX:XX:XX:XX:XX
@@ -122,11 +129,28 @@ TYPE=Ethernet
 UUID=hogehoge
 ONBOOT=yes
 NM_CONTROLLED=yes
-BOOTPROTO=dhcp</pre>
-
+BOOTPROTO=dhcp</code></pre></td></tr></table>
+</div>
+</div>
 <p>これでもうまくネットワークに繋がらないときは/etc/udev/rules.d/70-persistent-net.rulesでMACアドレスとinterfaceの紐付けが正しいかや同じ名前のinterfaceが複数設定されてないか確認</p>
-
-<pre class="lang:sh decode:true " title="/etc/udev/rules.d/70-persistent-net.rules">/etc/udev/rules.d/70-persistent-net.rules
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plaintext" data-lang="plaintext">/etc/udev/rules.d/70-persistent-net.rules
 
 This file was automatically generated by the /lib/udev/write_net_rules
 # program, run by the persistent-net-generator.rules rules file.
@@ -135,11 +159,12 @@ This file was automatically generated by the /lib/udev/write_net_rules
 # line, and change only the value of the NAME= key.
 
 # PCI device 0x1011:0x0009 (tulip)
-SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="XX:XX:XX:XX:XX:XX", ATTR{type}=="1", KERNEL=="eth*", NAME="eth0"
+SUBSYSTEM==&#34;net&#34;, ACTION==&#34;add&#34;, DRIVERS==&#34;?*&#34;, ATTR{address}==&#34;XX:XX:XX:XX:XX:XX&#34;, ATTR{type}==&#34;1&#34;, KERNEL==&#34;eth*&#34;, NAME=&#34;eth0&#34;
 
 # PCI device 0x1011:0x0009 (tulip)
-SUBSYSTEM=="net", ACTION=="add", DRIVERS=="?*", ATTR{address}=="XX:XX:XX:XX:XX:XX", ATTR{type}=="1", KERNEL=="eth*", NAME="eth1"</pre>
-
+SUBSYSTEM==&#34;net&#34;, ACTION==&#34;add&#34;, DRIVERS==&#34;?*&#34;, ATTR{address}==&#34;XX:XX:XX:XX:XX:XX&#34;, ATTR{type}==&#34;1&#34;, KERNEL==&#34;eth*&#34;, NAME=&#34;eth1&#34;</code></pre></td></tr></table>
+</div>
+</div>
 <p>今のところこれ以外は特にはまってない</p>
 
             </div>

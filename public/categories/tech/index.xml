@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tech on uranari dayo</title>
+    <title>tech on uranari</title>
     <link>https://www.uranari.io/categories/tech/</link>
-    <description>Recent content in Tech on uranari dayo</description>
+    <description>Recent content in tech on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 03 Jan 2019 12:28:36 +0900</lastBuildDate>
-    
-	<atom:link href="https://www.uranari.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 03 Jan 2019 12:28:36 +0900</lastBuildDate><atom:link href="https://www.uranari.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Amazon CloudWatch Logs Insights で SIEM ぽいことをやってみる</title>
       <link>https://www.uranari.io/tech/security/aws-siem-for-insights/</link>
@@ -28,8 +24,7 @@ Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをイン�
 それアラート設定してる意味ないじゃんとなります。
 話を戻して CloudWatch Logs Insight でのログの絞り込み方法です。
 まず eventSource ごとに分けることをおすすめしましたので eventSource だけを表示させます。
-
-ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</description>
+&amp;lt;a href=&amp;ldquo;https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg&amp;quot; data-rel=&amp;ldquo;lightbox-gallery-0QZwyEn5&amp;rdquo; data-rl_title=&amp;rdquo;&amp;quot; data-rl_caption=&amp;quot;&amp;quot; title=&amp;quot;&amp;quot;&amp;gt;ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</description>
     </item>
     
     <item>
@@ -39,7 +34,7 @@ Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをイン�
       
       <guid>https://www.uranari.io/tech/383/</guid>
       <description>毎年沖縄で開催しているハッカーズチャンプルーというイベントがあるのですが、今年のそのイベントにボランティアスタッフとして参加してきました。
-目次  1 ハッカーズチャンプルーとは   2 ボランティアスタッフって何やるの？   3 個人的に一番よかった講演   4 感想    ハッカーズチャンプルーとは 詳しくは公式サイトを見て欲しいのですが、簡単に書くと沖縄県内のIT関連のコミュニティが集まって沖縄県外からゲストの方を呼んで開催するカンファレンスです。
+ハッカーズチャンプルーとは 詳しくは公式サイトを見て欲しいのですが、簡単に書くと沖縄県内のIT関連のコミュニティが集まって沖縄県外からゲストの方を呼んで開催するカンファレンスです。
 講演の合間には立候補者によるLTもあったりしてけっこう賑やかなイベントになっています。
 ボランティアスタッフって何やるの？ 今年のハッカーズチャンプルーの内容については他の方々がすでに記事を書いているので、ボランティアスタッフって何をやっていたのかを少し書きます。
 今回のハッカーズチャンプルー2018でボランティアスタッフとしてやったことを書きますが、他のカンファレンスだったり勉強会でも手伝うことはだいたい同じですので、来年の運営を手伝いたいという方はご参考にどうぞ。
@@ -68,16 +63,8 @@ Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをイン�
 今回はTomcatのPUTの脆弱性(CVE-2017-12615～12617)を検証してみる。
 まずはあらかじめ検証対象のTomcatをローカルに保存し、web.xmlにreadonly falseの設定を追加しておく。
 なお今回はTomcat 7.0.79で検証してみた。
-&amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;default&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.apache.catalina.servlets.DefaultServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;debug&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;0&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;listings&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;false&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;readonly&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;false&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt; 続いて以下のDockerfileを書いておく。
-FROM centos:7 MAINTAINER uranari &amp;lt;uranaricb@gmail.com&amp;gt; RUN mkdir /usr/local/tomcat COPY tomcat /usr/local/tomcat RUN yum -y install --nogpgcheck java-1.8.0-openjdk-devel.x86_64 あとはこれをbuildして脆弱なイメージを作成する。
-docker build -t uranari/tomcat_put_vuln . これをリポジトリにpush
-docker push uranari/tomcat_put_vuln 実際に検証を実施してみる。
-pushしたイメージを持ってきてコンテナを作成し、tomcatを起動させ検証する。
-前回と同じ「192.168.30.99」のCentOS上でコンテナを作成して検証しています。
-docker run -it -d -p 8080:8080 --name tomcat_put_vuln uranari/tomcat_put_vuln /bin/bash コンテナを作成したらコンテナの中に入って/usr/local/tomcat/bin/startup.shを叩いてtomcatを起動させてください。
-これでtomcatが起動します。
-では実際に脆弱性の検証を実施してみましょう。
-まずブラウザでアクセスできることを確認します。</description>
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17  &amp;lt;servlet&amp;gt; &amp;lt;servlet-name&amp;gt;default&amp;lt;/servlet-name&amp;gt; &amp;lt;servlet-class&amp;gt;org.apache.catalina.servlets.DefaultServlet&amp;lt;/servlet-class&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;debug&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;0&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;listings&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;false&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;init-param&amp;gt; &amp;lt;param-name&amp;gt;readonly&amp;lt;/param-name&amp;gt; &amp;lt;param-value&amp;gt;false&amp;lt;/param-value&amp;gt; &amp;lt;/init-param&amp;gt; &amp;lt;load-on-startup&amp;gt;1&amp;lt;/load-on-startup&amp;gt; &amp;lt;/servlet&amp;gt;&amp;lt;/pre&amp;gt;   続いて以下のDockerfileを書いておく。
+1 2 3 4 5  FROM centos:7 MAINTAINER uranari &amp;lt;uranaricb@gmail.com&amp;gt; RUN mkdir /usr/local/tomcat COPY tomcat /usr/local/tomcat RUN yum -y install --nogpgcheck java-1.8.0-openjdk-devel.x86_64   あとはこれをbuildして脆弱なイメージを作成する。</description>
     </item>
     
     <item>
@@ -90,11 +77,11 @@ docker run -it -d -p 8080:8080 --name tomcat_put_vuln uranari/tomcat_put_vuln /b
 とは言いつつやっぱり似たようなことを既に先人たちが考えていて、同じようなことをやっている人がいました。
 Dockerを使って、Apache Struts2の脆弱性S2-037のやられ環境を手軽に作る
 Docker Hubを覗いてみるといい感じに既にできているものがあったので今回は他の人が公開しているイメージを使って検証環境を立てたいと思います。
-Windows上のHyper-VでDockerを動かして検証しようとしたのですが、docker-machineがうまく動いてくれなかったのでHyper-V上の192.168.30.99のIPでCnetOS7を立てて、その上でDockerを動かして検証しました。
-[uranari@localhost ~]$ docker pull onedriver/s2-045 [uranari@localhost ~]$ docker run -d -p 8080:8080 --name s2-045 onedriver/s2-045 これで192.168.30.99:8080でStrutsの脆弱性S2-045の脆弱性を含むアプリケーションが動作します。
-あとはFiddlerでリクエストを書き換えて脆弱性を検証してみました。
+ Windows上のHyper-VでDockerを動かして検証しようとしたのですが、docker-machineがうまく動いてくれなかったのでHyper-V上の192.168.30.99のIPでCnetOS7を立てて、その上でDockerを動かして検証しました。
+1 2 3  [uranari@localhost ~]$ docker pull onedriver/s2-045 [uranari@localhost ~]$ docker run -d -p 8080:8080 --name s2-045 onedriver/s2-045   これで192.168.30.99:8080でStrutsの脆弱性S2-045の脆弱性を含むアプリケーションが動作します。
+ あとはFiddlerでリクエストを書き換えて脆弱性を検証してみました。
 今回は/etc/passwdの中身を表示させるリクエストを送信しています。
-今回は既に公開されているイメージを使用して検証環境を作成してみましたが、自分で検証用のイメージを作成して公開する記事も近々書きたいと思います。</description>
+ 今回は既に公開されているイメージを使用して検証環境を作成してみましたが、自分で検証用のイメージを作成して公開する記事も近々書きたいと思います。</description>
     </item>
     
     <item>
@@ -104,17 +91,14 @@ Windows上のHyper-VでDockerを動かして検証しようとしたのですが
       
       <guid>https://www.uranari.io/tech/219/</guid>
       <description>ネットワーク系のエンジニアなら誰しも数GBあるpcapファイルから特定のHTTPRequstとそのResponseだけを抜き出したくなることが何回かあるのではないでしょうか。
-&amp;nbsp;
-やり方を書いてみます。
+ やり方を書いてみます。
 まずpcapファイルがありますね。
-
-このpcapファイルの中からこのブログ(www.uranari.io)にアクセスしているHTTPのRequestとそのResponseだけを抜き出して別のpcapに保存します。
-&amp;nbsp;
-まず以下のようにtsharkを使用することで特定のHTTPRequestのstream番号が分かります。
-$ tshark -r pcap.pcapng -R http.host==&#34;www.uranari.io&#34; -T fields -e tcp.stream -R の後ろのDisplayFilterの条件を変えることでそれぞれのFilterで引っかかったHTTPのstream番号が分かるはずです。
+ このpcapファイルの中からこのブログ(www.uranari.io)にアクセスしているHTTPのRequestとそのResponseだけを抜き出して別のpcapに保存します。
+ まず以下のようにtsharkを使用することで特定のHTTPRequestのstream番号が分かります。
+1  $ tshark -r pcap.pcapng -R http.host==&amp;#34;www.uranari.io&amp;#34; -T fields -e tcp.stream   -R の後ろのDisplayFilterの条件を変えることでそれぞれのFilterで引っかかったHTTPのstream番号が分かるはずです。
 後は出力されたstream番号でpcapファイルをfilterすればfilterしたHTTPRequestとそのResponseだけを抜き出すことができます。
 以下のようにすれば最初からfilterとして出力できる。
-$ tshark -r pcap.pcapng -R http.host==&#34;www.uranari.io&#34; -T fields -e tcp.stream | sort -un | sed -e &#39;:loop; N; $!b loop; s/\n/ or tcp.stream==/g&#39; 7 or tcp.stream==8 or tcp.stream==9 or tcp.stream==10 or tcp.stream==11 or tcp.stream==12 or tcp.stream==48 or tcp.stream==49 or tcp.stream==52 or tcp.stream==53 or tcp.stream==54 or tcp.stream==61 or tcp.stream==67 or tcp.</description>
+1 2 3  $ tshark -r pcap.pcapng -R http.host==&amp;#34;www.uranari.io&amp;#34; -T fields -e tcp.stream | sort -un | sed -e &amp;#39;:loop; N; $!b loop; s/\n/ or tcp.stream==/g&amp;#39; 7 or tcp.stream==8 or tcp.stream==9 or tcp.stream==10 or tcp.stream==11 or tcp.stream==12 or tcp.stream==48 or tcp.stream==49 or tcp.stream==52 or tcp.</description>
     </item>
     
     <item>
@@ -124,17 +108,14 @@ $ tshark -r pcap.pcapng -R http.host==&#34;www.uranari.io&#34; -T fields -e tcp.
       
       <guid>https://www.uranari.io/tech/201/</guid>
       <description>自分用メモ
-&amp;nbsp;
-仮想マシン作るたびにこの設定しないといけないので
+ 仮想マシン作るたびにこの設定しないといけないので
 Hyper-V上で仮想マシンをたてるときにレガシーネットワークアダプターを使わざるをえないことがあるのでそのときのネットワーク回りの設定の注意点
 まずハードウェアの追加でレガシーネットワークアダプターを追加
-
-MACアドレスは固定に
-
-仮想マシン側(今回はCentOS)のinterfaceに割り振ったMACアドレスを記載する
+ MACアドレスは固定に
+ 仮想マシン側(今回はCentOS)のinterfaceに割り振ったMACアドレスを記載する
 それ以外は通常通り設定
-/etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 HWADDR=XX:XX:XX:XX:XX:XX TYPE=Ethernet UUID=hogehoge ONBOOT=yes NM_CONTROLLED=yes BOOTPROTO=dhcp これでもうまくネットワークに繋がらないときは/etc/udev/rules.d/70-persistent-net.rulesでMACアドレスとinterfaceの紐付けが正しいかや同じ名前のinterfaceが複数設定されてないか確認
-/etc/udev/rules.d/70-persistent-net.rules This file was automatically generated by the /lib/udev/write_net_rules # program, run by the persistent-net-generator.rules rules file. # # You can modify it, as long as you keep each rule on a single # line, and change only the value of the NAME= key. # PCI device 0x1011:0x0009 (tulip) SUBSYSTEM==&#34;net&#34;, ACTION==&#34;add&#34;, DRIVERS==&#34;</description>
+1 2 3 4 5 6 7 8 9  /etc/sysconfig/network-scripts/ifcfg-eth0 DEVICE=eth0 HWADDR=XX:XX:XX:XX:XX:XX TYPE=Ethernet UUID=hogehoge ONBOOT=yes NM_CONTROLLED=yes BOOTPROTO=dhcp   これでもうまくネットワークに繋がらないときは/etc/udev/rules.d/70-persistent-net.rulesでMACアドレスとinterfaceの紐付けが正しいかや同じ名前のinterfaceが複数設定されてないか確認
+1 2 3 4 5 6 7 8 9 10 11 12 13  /etc/udev/rules.d/70-persistent-net.rules This file was automatically generated by the /lib/udev/write_net_rules # program, run by the persistent-net-generator.rules rules file. # # You can modify it, as long as you keep each rule on a single # line, and change only the value of the NAME= key.</description>
     </item>
     
     <item>
@@ -144,11 +125,10 @@ MACアドレスは固定に
       
       <guid>https://www.uranari.io/tech/33/</guid>
       <description>morihi-socの森久さんがハニーポット本を出したので読んだ感想を書きます。
-   内容はハニーポットのログから攻撃手法や攻撃の傾向を調べてみようといったものです。ログからどういった脆弱性を狙った攻撃なのかだけでなく攻撃者の意図まで推測しようというところはさすがです。
+内容はハニーポットのログから攻撃手法や攻撃の傾向を調べてみようといったものです。ログからどういった脆弱性を狙った攻撃なのかだけでなく攻撃者の意図まで推測しようというところはさすがです。
 この攻撃はbotで自動的に打たれてるのか、ただの愉快犯てきな攻撃なのか、脆弱性があるか調査してるだけなのか、本気でデータベースの情報を取りにきてるのかといったところまで想像を膨らませながら分析すると楽しいですね。
 細かい内容はぜひ購入して読んでいただきたいのですが、Webサーバーの膨大なログの中から、この本で紹介されているような怪しいログをピンポイントで見つけられるようになるとまた新しい楽しさがあります。
-ネットワークセキュリティアナリストってどんなことやってるの？とか外部のSOCに監視を依頼してるけど実際彼らがどんなことをしているかわからないので知りたいという人はこの本と合わせてオライリーのデータ分析によるネットワークセキュリティを読むと大体こんな感じでログを分析しているということがわかるのではないかなと思います。
-   &amp;nbsp;</description>
+ネットワークセキュリティアナリストってどんなことやってるの？とか外部のSOCに監視を依頼してるけど実際彼らがどんなことをしているかわからないので知りたいという人はこの本と合わせてオライリーのデータ分析によるネットワークセキュリティを読むと大体こんな感じでログを分析しているということがわかるのではないかなと思います。</description>
     </item>
     
   </channel>

@@ -1,6 +1,6 @@
 baseURL = "https://www.uranari.io/"
 languageCode = "ja"
-title = "uranari dayo"
+title = "uranari"
 theme = "nofancy"
 canonifyurls = true
 

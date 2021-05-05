@@ -4,7 +4,7 @@
 <head>
   
   <meta charset="utf-8">
-  <title>AzureでFunctionsをデプロイした時に出るreceiverConnectionStringというエラーについて - uranari dayo</title>
+  <title>AzureでFunctionsをデプロイした時に出るreceiverConnectionStringというエラーについて - uranari</title>
   <meta name="description" content="AzureでFunctionsをデプロイした時に出るreceiverConnectionStringというエラーについて">
   <meta name="author" content="uranari">
 
@@ -31,7 +31,7 @@
   <script src="https://www.uranari.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <meta name="generator" content="Hugo 0.40.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
 </head>
 
@@ -41,7 +41,7 @@
     <div class="pure-u-11-12 pure-u-md-5-8">
         <div class="desktop pure-menu pure-menu-horizontal nav-menu">
             
-            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari</a>
             <ul class="pure-menu-list">
                 
                 <li class="pure-menu-item">
@@ -53,7 +53,7 @@
             </ul>
         </div>
         <div class="mobile pure-menu nav-menu">
-            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari</a>
             <a href="#" id="toggle-btn">&#9776;</a>
             <ul class="pure-menu-list" id="toggle-content" style="display:none;">
                 
@@ -94,44 +94,19 @@
             </div>
 
             <div class="post-content">
-                
-
-<h3 id="azure-functions-の-receiverconnectionstring-エラーについて">Azure Functions の receiverConnectionString エラーについて</h3>
-
+                <h3 id="azure-functions-の-receiverconnectionstring-エラーについて">Azure Functions の receiverConnectionString エラーについて</h3>
 <p>Azure で Azure Functions をデプロイした際に下記の画像のようなエラーが出ることがあります。</p>
-
-
-<figure class="center">
-    
-        <img src="https://www.uranari.io/images/azure-functions-error/azure_deploy.JPG" width="640" height="1280" />
-    
-    
+<figure class="center"><img src="https://www.uranari.io/images/azure-functions-error/azure_deploy.JPG" width="640" height="1280"/>
 </figure>
-
 
 <p>上記のエラーで結構はまってしまったので解決方法を記載しておきます。</p>
-
 <p>解決方法なんですが、自分の場合は EventHub をトリガーにしているので <code>local.settins.json</code> に記載されている EventHub の接続文字列を</p>
-
-
-<figure class="center">
-    
-        <img src="https://www.uranari.io/images/azure-functions-error/local_serrings.JPG" width="640" height="1280" />
-    
-    
+<figure class="center"><img src="https://www.uranari.io/images/azure-functions-error/local_serrings.JPG" width="640" height="1280"/>
 </figure>
-
 
 <p>下記のアプリケーション設定に設定します。</p>
-
-
-<figure class="center">
-    
-        <img src="https://www.uranari.io/images/azure-functions-error/app_config.JPG" width="640" height="1280" />
-    
-    
+<figure class="center"><img src="https://www.uranari.io/images/azure-functions-error/app_config.JPG" width="640" height="1280"/>
 </figure>
-
 
 <p>以上！！</p>
 

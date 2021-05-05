@@ -4,7 +4,7 @@
 <head>
   
   <meta charset="utf-8">
-  <title>AWS LightsailでWordPressを立ち上げるときに/bitnami/index.htmlを表示させない - uranari dayo</title>
+  <title>AWS LightsailでWordPressを立ち上げるときに/bitnami/index.htmlを表示させない - uranari</title>
   <meta name="description" content="AWS LightsailでWordPressを立ち上げるときに/bitnami/index.htmlを表示させない">
   <meta name="author" content="uranari">
 
@@ -31,7 +31,7 @@
   <script src="https://www.uranari.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <meta name="generator" content="Hugo 0.40.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
 </head>
 
@@ -41,7 +41,7 @@
     <div class="pure-u-11-12 pure-u-md-5-8">
         <div class="desktop pure-menu pure-menu-horizontal nav-menu">
             
-            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari</a>
             <ul class="pure-menu-list">
                 
                 <li class="pure-menu-item">
@@ -53,7 +53,7 @@
             </ul>
         </div>
         <div class="mobile pure-menu nav-menu">
-            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari</a>
             <a href="#" id="toggle-btn">&#9776;</a>
             <ul class="pure-menu-list" id="toggle-content" style="display:none;">
                 
@@ -95,40 +95,29 @@
 
             <div class="post-content">
                 <p>このblogはAWS Lightsailで運用していますが、立ち上げるときに気をつけたことを書いておきます。</p>
-
-<p>AWS LightsailのWordPressでデフォルト状態のままだと <a href="http://ip[domain]/bitnami/でアクセスするとWordPressのユーザーアカウントが記載されたページが表示されます。">http://ip[domain]/bitnami/でアクセスするとWordPressのユーザーアカウントが記載されたページが表示されます。</a></p>
-
+<p>AWS LightsailのWordPressでデフォルト状態のままだと http://ip[domain]/bitnami/でアクセスするとWordPressのユーザーアカウントが記載されたページが表示されます。</p>
 <p>パスワードは記載されていませんが精神衛生上よろしくないので/bitnami/にアクセスがあるとトップページにリダイレクトさせたいと思います。</p>
-
 <p>AWS LightsailsのWordPressのイメージのapacheの設定ファイルは /opt/bitnami/apache2/conf/httpd.confです。</p>
-
-<pre title="”httpd.conf”" lang="”apache”">&lt;IfModule alias_module>
-~
-# 下の1行を追加する
-    RedirectMatch \/bitnami\/(.*) /
-~
-&lt;/IfModule>
-</pre>
-
-<p>あと個人でblogを運用していて自宅以外からは管理画面にアクセスしないという人は/opt/bitnami/apps/wordpress/conf/htaccess.confに以下の設定もしておくといいと思います。</p>
-
-<pre title="htaccess.conf" lang="apache"># 一番下に以下の内容をディレクティブごと追加
-&lt;Directory "/opt/bitnami/apps/wordpress/htdocs/wp-admin/">
+<pre><code>&lt;IfModule dir_module&gt;
+   # 下記１行を追加
+    DirectoryIndex index.html
+&lt;/IfModule&gt;
+</code></pre><p>あと個人でblogを運用していて自宅以外からは管理画面にアクセスしないという人は/opt/bitnami/apps/wordpress/conf/htaccess.confに以下の設定もしておくといいと思います。</p>
+<pre><code># 一番下に以下の内容をディレクティブごと追加
+&lt;Directory &quot;/opt/bitnami/apps/wordpress/htdocs/wp-admin/&quot;&gt;
         Order deny,allow
         Deny from all
-        Allow from "自分のIPアドレス"
-&lt;/Directory>
+        Allow from &quot;自分のIPアドレス&quot;
+&lt;/Directory&gt;
 
-&lt;Directory "/opt/bitnami/apps/wordpress/htdocs/">
-        &lt;Files wp-login.php>
+&lt;Directory &quot;/opt/bitnami/apps/wordpress/htdocs/&quot;&gt;
+        &lt;Files wp-login.php&gt;
         Order deny,allow
         Deny from all
-        Allow from "自分のIPアドレス"
-        &lt;/Files>
-&lt;/Directory>
-</pre>
-
-<p>bitnamiというXAMPPみたいな？LAMP環境を使っているみたいですが設定ファイルの場所を探すのに苦労しました。</p>
+        Allow from &quot;自分のIPアドレス&quot;
+        &lt;/Files&gt;
+&lt;/Directory&gt;
+</code></pre><p>bitnamiというXAMPPみたいな？LAMP環境を使っているみたいですが設定ファイルの場所を探すのに苦労しました。</p>
 
             </div>
         </div>

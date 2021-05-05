@@ -1,27 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Aws on uranari dayo</title>
+    <title>AWS on uranari</title>
     <link>https://www.uranari.io/categories/aws/</link>
-    <description>Recent content in Aws on uranari dayo</description>
+    <description>Recent content in AWS on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 26 Oct 2019 11:20:49 +0900</lastBuildDate>
-    
-	<atom:link href="https://www.uranari.io/categories/aws/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sat, 26 Oct 2019 11:20:49 +0900</lastBuildDate><atom:link href="https://www.uranari.io/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>CloudTrail Monitoring -IAM-</title>
-      <link>https://www.uranari.io/tech/aws/cloudtrail-monitoring-iam/</link>
+      <link>https://www.uranari.io/tech/aws/CloudTrail-Monitoring-IAM/</link>
       <pubDate>Sat, 26 Oct 2019 11:20:49 +0900</pubDate>
       
-      <guid>https://www.uranari.io/tech/aws/cloudtrail-monitoring-iam/</guid>
+      <guid>https://www.uranari.io/tech/aws/CloudTrail-Monitoring-IAM/</guid>
       <description>CloudTrail 見てますか？ AWS を利用するうえでのセキュリティ対策として CloudTrail を有効にすることが色んな記事で紹介されていますが、皆さんちゃんと見ていますか？
 ふだん自分がセキュリティ対策として CloudTrail のログでどういったリアルタイム監視をしているかをリソース別に紹介したいと思います。 すべてのリソースのログを一つの記事で紹介すると量が多くなってしまうため、今回はログインと IAM、AssumeRole 周りのログの監視について紹介したいと思います。
 紹介するイベントについてとCloudTrailのログについて 本記事と今後も CloudTrail のログ監視について紹介する記事を書くことがあった場合、基本的に Event name の値別で紹介していきます。 また、CloudTrail のログでは、そのイベントが失敗したか成功したかについてはログに errorcode や errormessage のフィールドに値が入っているかどうかで判断できます。
 これらのフィールドに値が入っている場合はそのイベントは失敗しており、その理由がそれらのフィールドに記録されます。
-  cloudtrailの画面 View event を開くと生ログが見れる   ConsoleLogin 名前の通り、AWS の Web コンソール にログインを試みた際に記録されるイベント。
+ cloudtrailの画面 View event を開くと生ログが見れる
+  ConsoleLogin 名前の通り、AWS の Web コンソール にログインを試みた際に記録されるイベント。
 あくまで Webコンソール にログインを試みたイベントなので、AWS CLI などを利用した場合はこのイベントは記録されません。
 もし急に海外からのログインとかがあったり、本人が身に覚えのない場合は認証情報が漏洩している可能性があるかもしれません。
 CreateUser 新しい IAM User が作成された際に記録されるイベント。
@@ -30,21 +27,21 @@ CreatePolicy IAM で新しい Policy を作成した際に記録されるイベ�
 付与される権限も CloudTrail のログに記録されているので、余計な権限が付与されてないか確認することができます。
 CreatePolicyVersion 既存の Policy を編集する際に記録されるイベントです。
 こちらもログにインラインポリシーが記録されているので余計な権限が付与されてないか確認することができます。
-CreateRole 新しい Role が作成されたときに記録されるイベント。</description>
+CreateRole 新しい Role が作成されたときに記録されるイベント。
+AWS のサービスの中にはサービスに伴って自動的に Role が作成されるものもある(WAF のログを Kinesis に流すときとか)ので色々とややこしかったりするんですが、こちらも同様に変な Role が作成されてないか監視できます。</description>
     </item>
     
     <item>
       <title>AWS Security Monitoring -IAM-</title>
-      <link>https://www.uranari.io/tech/aws/aws-security-monitoring-iam/</link>
+      <link>https://www.uranari.io/tech/aws/AWS-Security-Monitoring-IAM/</link>
       <pubDate>Wed, 01 May 2019 11:20:49 +0900</pubDate>
       
-      <guid>https://www.uranari.io/tech/aws/aws-security-monitoring-iam/</guid>
+      <guid>https://www.uranari.io/tech/aws/AWS-Security-Monitoring-IAM/</guid>
       <description>AWS Security Monitoring, that was introduced some checkpoint on some web sites.
 But i hava not seen so much &amp;ldquo;how check&amp;rdquo;, i will introduce example on use Cloudwatch Logs Insight and CloudTrail to check IAM rule.
 Narrow down IAM event First step, narrow down only IAM event.
 sample query
-fields eventSource, @timestamp | filter eventSource = &amp;quot;iam.amazonaws.com&amp;quot;  
-Create New User example case, if you were stolen aws credential, attacker may create new user in use that credential.</description>
+fields eventSource, @timestamp | filter eventSource = &amp;quot;iam.amazonaws.com&amp;quot; &amp;lt;a href=&amp;ldquo;https://dtiemu0c7gxsz.cloudfront.net/image/AWS-Security-Monitoring-IAM/eventSource.png&amp;quot; data-rel=&amp;ldquo;lightbox-gallery-0QZwyEn5&amp;rdquo; data-rl_title=&amp;rdquo;&amp;quot; data-rl_caption=&amp;quot;&amp;quot; title=&amp;quot;&amp;quot;&amp;gt;Create New User example case, if you were stolen aws credential, attacker may create new user in use that credential.</description>
     </item>
     
     <item>
@@ -64,8 +61,7 @@ Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをイン�
 それアラート設定してる意味ないじゃんとなります。
 話を戻して CloudWatch Logs Insight でのログの絞り込み方法です。
 まず eventSource ごとに分けることをおすすめしましたので eventSource だけを表示させます。
-
-ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</description>
+&amp;lt;a href=&amp;ldquo;https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg&amp;quot; data-rel=&amp;ldquo;lightbox-gallery-0QZwyEn5&amp;rdquo; data-rl_title=&amp;rdquo;&amp;quot; data-rl_caption=&amp;quot;&amp;quot; title=&amp;quot;&amp;quot;&amp;gt;ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</description>
     </item>
     
     <item>
@@ -78,8 +74,8 @@ Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをイン�
 AWS LightsailのWordPressでデフォルト状態のままだと http://ip[domain]/bitnami/でアクセスするとWordPressのユーザーアカウントが記載されたページが表示されます。
 パスワードは記載されていませんが精神衛生上よろしくないので/bitnami/にアクセスがあるとトップページにリダイレクトさせたいと思います。
 AWS LightsailsのWordPressのイメージのapacheの設定ファイルは /opt/bitnami/apache2/conf/httpd.confです。
-&amp;lt;IfModule alias_module ~ # 下の1行を追加する RedirectMatch \/bitnami\/(.*) / ~ &amp;lt;/IfModule  あと個人でblogを運用していて自宅以外からは管理画面にアクセスしないという人は/opt/bitnami/apps/wordpress/conf/htaccess.confに以下の設定もしておくといいと思います。
-# 一番下に以下の内容をディレクティブごと追加 &amp;lt;Directory &#34;/opt/bitnami/apps/wordpress/htdocs/wp-admin/&#34; Order deny,allow Deny from all Allow from &#34;自分のIPアドレス&#34; &amp;lt;/Directory &amp;lt;Directory &#34;/opt/bitnami/apps/wordpress/htdocs/&#34; &amp;lt;Files wp-login.php Order deny,allow Deny from all Allow from &#34;自分のIPアドレス&#34; &amp;lt;/Files &amp;lt;/Directory  bitnamiというXAMPPみたいな？LAMP環境を使っているみたいですが設定ファイルの場所を探すのに苦労しました。</description>
+&amp;lt;IfModule dir_module&amp;gt; # 下記１行を追加 DirectoryIndex index.html &amp;lt;/IfModule&amp;gt; あと個人でblogを運用していて自宅以外からは管理画面にアクセスしないという人は/opt/bitnami/apps/wordpress/conf/htaccess.confに以下の設定もしておくといいと思います。
+# 一番下に以下の内容をディレクティブごと追加 &amp;lt;Directory &amp;quot;/opt/bitnami/apps/wordpress/htdocs/wp-admin/&amp;quot;&amp;gt; Order deny,allow Deny from all Allow from &amp;quot;自分のIPアドレス&amp;quot; &amp;lt;/Directory&amp;gt; &amp;lt;Directory &amp;quot;/opt/bitnami/apps/wordpress/htdocs/&amp;quot;&amp;gt; &amp;lt;Files wp-login.php&amp;gt; Order deny,allow Deny from all Allow from &amp;quot;自分のIPアドレス&amp;quot; &amp;lt;/Files&amp;gt; &amp;lt;/Directory&amp;gt; bitnamiというXAMPPみたいな？LAMP環境を使っているみたいですが設定ファイルの場所を探すのに苦労しました。</description>
     </item>
     
   </channel>

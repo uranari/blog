@@ -4,7 +4,7 @@
 <head>
   
   <meta charset="utf-8">
-  <title>Amazon CloudWatch Logs Insights で SIEM ぽいことをやってみる - uranari dayo</title>
+  <title>Amazon CloudWatch Logs Insights で SIEM ぽいことをやってみる - uranari</title>
   <meta name="description" content="Amazon CloudWatch Logs Insights で SIEM ぽいことをやってみる">
   <meta name="author" content="uranari">
 
@@ -31,7 +31,7 @@
   <script src="https://www.uranari.io/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <meta name="generator" content="Hugo 0.40.1" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
 </head>
 
@@ -41,7 +41,7 @@
     <div class="pure-u-11-12 pure-u-md-5-8">
         <div class="desktop pure-menu pure-menu-horizontal nav-menu">
             
-            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari</a>
             <ul class="pure-menu-list">
                 
                 <li class="pure-menu-item">
@@ -53,7 +53,7 @@
             </ul>
         </div>
         <div class="mobile pure-menu nav-menu">
-            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari dayo</a>
+            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari</a>
             <a href="#" id="toggle-btn">&#9776;</a>
             <ul class="pure-menu-list" id="toggle-content" style="display:none;">
                 
@@ -95,30 +95,20 @@
 
             <div class="post-content">
                 <p>AWS re:Ivent 2018 では AWS Security Hub や KMS Custom Key Store などの新しいセキュリティ関連のマネージドサービスが発表されましたが、個人的に一番熱かったのが Amazon CloudWatch Logs Insights だったので紹介しておきます。</p>
-
 <p><a href="https://aws.amazon.com/jp/blogs/news/new-amazon-cloudwatch-logs-insights-fast-interactive-log-analytics/">Amazon CloudWatch Logs Insights</a>
 は従来の CloudWatch Logs のログをインタラクティブに検索できるものですが、概要だけ聞いたときに「それ SIEM じゃん」と思ったので、実際に SIEM として使えるか試してみました。</p>
-
-<p>ここでは例として CloudTrail のログを分析対象とします。<br />
+<p>ここでは例として CloudTrail のログを分析対象とします。<br>
 あらかじめ CloudTrail のログを CloudWatch へ転送する設定を別途実施しておいてください。</p>
-
 <p>今回は CloudTrail のログから S3 の特定のバケットに オブジェクトが作成された際にバケット名やオブジェクト名を絞る方法を説明します。</p>
-
 <p>まず始めに CloudTrail のログを分析するときはログを eventSouce のフィールド毎に分けることをおすすめします。</p>
-
-<p>話が脱線しますが、こういった SIEM のルールを作る際は上記の「S3のバケットにオブジェクトが作成された際のバケット名やオブジェクト名を知りたい」のようにルールの目的やアラートを発出する際の条件とそれが検知された際の調査項目などをあらかじめ整理しておくことをおすすめします。<br />
-典型的なダメダメなパターンは、とりあえず GuardDuty を ON にしたけどアラート飛んできてもこれがだめなものか分からないし、何を調査したらいいか分からないといったパターンです。<br />
+<p>話が脱線しますが、こういった SIEM のルールを作る際は上記の「S3のバケットにオブジェクトが作成された際のバケット名やオブジェクト名を知りたい」のようにルールの目的やアラートを発出する際の条件とそれが検知された際の調査項目などをあらかじめ整理しておくことをおすすめします。<br>
+典型的なダメダメなパターンは、とりあえず GuardDuty を ON にしたけどアラート飛んできてもこれがだめなものか分からないし、何を調査したらいいか分からないといったパターンです。<br>
 それアラート設定してる意味ないじゃんとなります。</p>
-
-<p>話を戻して CloudWatch Logs Insight でのログの絞り込み方法です。<br />
+<p>話を戻して CloudWatch Logs Insight でのログの絞り込み方法です。<br>
 まず eventSource ごとに分けることをおすすめしましたので eventSource だけを表示させます。</p>
-
-<p><a href="https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg" data-rel="lightbox-gallery-0QZwyEn5" data-rl\_title="" data-rl\_caption="" title=""><img src="https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg" alt="" width="1000" height="550" sizes="(max-width: 1270px) 100vw, 1270px" /></a></p>
-
+<p>&lt;a href=&ldquo;<a href="https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg%22">https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg&quot;</a> data-rel=&ldquo;lightbox-gallery-0QZwyEn5&rdquo; data-rl_title=&rdquo;&quot; data-rl_caption=&quot;&quot; title=&quot;&quot;&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <p>ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</p>
-
-<p><a href="https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/putobject.jpg" data-rel="lightbox-gallery-0QZwyEn5" data-rl\_title="" data-rl\_caption="" title=""><img src="https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/putobject.jpg" alt="" width="1000" height="550" sizes="(max-width: 1270px) 100vw, 1270px" /></a></p>
-
+<p>&lt;a href=&ldquo;<a href="https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/putobject.jpg%22">https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/putobject.jpg&quot;</a> data-rel=&ldquo;lightbox-gallery-0QZwyEn5&rdquo; data-rl_title=&rdquo;&quot; data-rl_caption=&quot;&quot; title=&quot;&quot;&gt;<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
 <p>あとはこれを普通の CloudWatch Logs と同様にダッシュボードに追加してアラームの設定をすれば実質 SIEM のできあがりです。</p>
 
             </div>
