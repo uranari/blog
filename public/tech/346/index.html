@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+
   
   <meta charset="utf-8">
   <title>Dockerを使って脆弱性の検証環境を作成してみる　～Dockerイメージ作成編～ - uranari</title>
@@ -13,56 +13,49 @@
 
   
   <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="https://www.uranari.io/css/fonts.css">
+  <link rel="stylesheet" href="https://uranari.com/css/fonts.css">
+  
+  
+  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css" integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
+  
+  
+    <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
+  
+  <link rel="stylesheet" href="https://uranari.com/css/custom.css">
 
   
-  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/pure-min.css"
-    integrity="sha384-CCTZv2q9I9m3UOxRLaJneXrrqKwUNOzZ6NGEUMwHtShDJ+nCoiXJCAgi05KfkLGY" crossorigin="anonymous">
   
+  <link rel="stylesheet" href="https://uranari.com/highlight/styles/default.css">
   
-  <link rel="stylesheet" href="https://unpkg.com/purecss@0.6.1/build/grids-responsive-min.css">
-  
-  <link rel="stylesheet" href="https://www.uranari.io/css/custom.css">
-
-  
-  
-  <link rel="stylesheet" href="https://www.uranari.io/highlight/styles/default.css">
-  
-  <script src="https://www.uranari.io/highlight/highlight.pack.js"></script>
+  <script src="https://uranari.com/highlight/highlight.pack.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
 
-  <meta name="generator" content="Hugo 0.83.1" />
-
+  <meta name="generator" content="Hugo 0.68.3" />
+  
 </head>
-
 <body>
+
 <div class="header pure-g">
     <div class="pure-u-1-24 pure-u-md-5-24"></div>
     <div class="pure-u-11-12 pure-u-md-5-8">
         <div class="desktop pure-menu pure-menu-horizontal nav-menu">
             
-            <a href="https://www.uranari.io/" class="site-title pure-menu-heading">uranari</a>
+            <a href="https://uranari.com/" class="site-title pure-menu-heading">uranari</a>
             <ul class="pure-menu-list">
-                
+				
                 <li class="pure-menu-item">
-                    <a href="https://www.uranari.io/about/" class="pure-menu-link">About</a>
-                </li>
-                <li class="pure-menu-item">
-                    <a href="https://www.uranari.io/privacypolicy" class="pure-menu-link">PrivacyPolicy</a>
+                    <a href="https://uranari.com/about/" class="pure-menu-link">About</a>
                 </li>
             </ul>
         </div>
         <div class="mobile pure-menu nav-menu">
-            <a href="https://www.uranari.io/" class="pure-menu-heading" id="toggle-home">uranari</a>
+            <a href="https://uranari.com/" class="pure-menu-heading" id="toggle-home">uranari</a>
             <a href="#" id="toggle-btn">&#9776;</a>
             <ul class="pure-menu-list" id="toggle-content" style="display:none;">
                 
-                
+				
                 <li class="pure-menu-item">
-                    <a href="https://www.uranari.io/about" class="pure-menu-link">About</a>
-                </li>
-                <li class="pure-menu-item">
-                    <a href="https://www.uranari.io/privacypolicy" class="pure-menu-link">PrivacyPolicy</a>
+                    <a href="https://uranari.com/about" class="pure-menu-link">About</a>
                 </li>
             </ul>
         </div>
@@ -85,7 +78,7 @@
                     
 
                     
-                    categories:<a href="https://www.uranari.io/categories/security">security</a> <a href="https://www.uranari.io/categories/tech">tech</a> 
+                    categories:<a href="https://uranari.com/categories/security">security</a> <a href="https://uranari.com/categories/tech">tech</a> 
                     
 
                     
@@ -188,20 +181,24 @@ RUN yum -y install --nogpgcheck java-1.8.0-openjdk-devel.x86_64</code></pre></td
 <p>これでtomcatが起動します。</p>
 <p>では実際に脆弱性の検証を実施してみましょう。</p>
 <p>まずブラウザでアクセスできることを確認します。</p>
-<figure class="center"><img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114253/tomcat.jpg" width="640" height="320"/>
+<figure class="center">
+    <img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114253/tomcat.jpg" width="640" height="320"/> 
 </figure>
 
 <p>今回はGETのqueryにcmdを指定して渡されたパラメーターのコマンドを実行するshell.jspというwebshellを設置し実際にコマンドが実行されることを確認したいと思います。</p>
 <p>まずはPUTでwebshellを設置する。</p>
-<figure class="center"><img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114856/put_request.jpg" width="640" height="320"/>
+<figure class="center">
+    <img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29114856/put_request.jpg" width="640" height="320"/> 
 </figure>
 
 <p>続いてこのwebshellにcmdというqueryで実行させるコマンドをパラメーターとして渡して実行されることを確認します。</p>
-<figure class="center"><img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115145/cmd_request.jpg" width="640" height="320"/>
+<figure class="center">
+    <img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115145/cmd_request.jpg" width="640" height="320"/> 
 </figure>
 
 <p>実行結果です。</p>
-<figure class="center"><img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115212/cmd_response.jpg" width="640" height="320"/>
+<figure class="center">
+    <img src="https://s3-ap-northeast-1.amazonaws.com/resource.www.uranari.io/wp-content/uploads/2017/11/29115212/cmd_response.jpg" width="640" height="320"/> 
 </figure>
 
 <p>このDockerイメージはDockerHubの自分のリポジトリで公開しているので誰でも試すことができます。</p>
@@ -252,8 +249,8 @@ RUN yum -y install --nogpgcheck java-1.8.0-openjdk-devel.x86_64</code></pre></td
 </div>
 
 
-<script src="https://www.uranari.io/js/jquery.min.js" type="text/javascript"></script>
-<script src="https://www.uranari.io/js/jquery.timeago.js" type="text/javascript"></script>
+<script src="https://uranari.com/js/jquery.min.js" type="text/javascript"></script>
+<script src="https://uranari.com/js/jquery.timeago.js" type="text/javascript"></script>
 <script type="text/javascript">
   $(function(){
     $("time.timeago").timeago();
