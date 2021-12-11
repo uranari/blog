@@ -2,17 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>security on uranari</title>
-    <link>https://www.uranari.io/categories/security/</link>
+    <link>https://uranari.com/categories/security/</link>
     <description>Recent content in security on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 26 Oct 2019 11:20:49 +0900</lastBuildDate><atom:link href="https://www.uranari.io/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Oct 2019 11:20:49 +0900</lastBuildDate>
+    
+	<atom:link href="https://uranari.com/categories/security/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>CloudTrail Monitoring -IAM-</title>
-      <link>https://www.uranari.io/tech/aws/CloudTrail-Monitoring-IAM/</link>
+      <link>https://uranari.com/tech/aws/cloudtrail-monitoring-iam/</link>
       <pubDate>Sat, 26 Oct 2019 11:20:49 +0900</pubDate>
       
-      <guid>https://www.uranari.io/tech/aws/CloudTrail-Monitoring-IAM/</guid>
+      <guid>https://uranari.com/tech/aws/cloudtrail-monitoring-iam/</guid>
       <description>CloudTrail 見てますか？ AWS を利用するうえでのセキュリティ対策として CloudTrail を有効にすることが色んな記事で紹介されていますが、皆さんちゃんと見ていますか？
 ふだん自分がセキュリティ対策として CloudTrail のログでどういったリアルタイム監視をしているかをリソース別に紹介したいと思います。 すべてのリソースのログを一つの記事で紹介すると量が多くなってしまうため、今回はログインと IAM、AssumeRole 周りのログの監視について紹介したいと思います。
 紹介するイベントについてとCloudTrailのログについて 本記事と今後も CloudTrail のログ監視について紹介する記事を書くことがあった場合、基本的に Event name の値別で紹介していきます。 また、CloudTrail のログでは、そのイベントが失敗したか成功したかについてはログに errorcode や errormessage のフィールドに値が入っているかどうかで判断できます。
@@ -33,23 +37,23 @@ AWS のサービスの中にはサービスに伴って自動的に Role が作�
     
     <item>
       <title>AWS Security Monitoring -IAM-</title>
-      <link>https://www.uranari.io/tech/aws/AWS-Security-Monitoring-IAM/</link>
+      <link>https://uranari.com/tech/aws/aws-security-monitoring-iam/</link>
       <pubDate>Wed, 01 May 2019 11:20:49 +0900</pubDate>
       
-      <guid>https://www.uranari.io/tech/aws/AWS-Security-Monitoring-IAM/</guid>
+      <guid>https://uranari.com/tech/aws/aws-security-monitoring-iam/</guid>
       <description>AWS Security Monitoring, that was introduced some checkpoint on some web sites.
 But i hava not seen so much &amp;ldquo;how check&amp;rdquo;, i will introduce example on use Cloudwatch Logs Insight and CloudTrail to check IAM rule.
 Narrow down IAM event First step, narrow down only IAM event.
 sample query
-fields eventSource, @timestamp | filter eventSource = &amp;quot;iam.amazonaws.com&amp;quot; &amp;lt;a href=&amp;ldquo;https://dtiemu0c7gxsz.cloudfront.net/image/AWS-Security-Monitoring-IAM/eventSource.png&amp;quot; data-rel=&amp;ldquo;lightbox-gallery-0QZwyEn5&amp;rdquo; data-rl_title=&amp;rdquo;&amp;quot; data-rl_caption=&amp;quot;&amp;quot; title=&amp;quot;&amp;quot;&amp;gt;Create New User example case, if you were stolen aws credential, attacker may create new user in use that credential.</description>
+fields eventSource, @timestamp | filter eventSource = &amp;quot;iam.amazonaws.com&amp;quot; &amp;lt;a href=&amp;quot;https://dtiemu0c7gxsz.cloudfront.net/image/AWS-Security-Monitoring-IAM/eventSource.png&amp;rdquo; data-rel=&amp;quot;lightbox-gallery-0QZwyEn5&amp;rdquo; data-rl_title=&amp;rdquo;&amp;rdquo; data-rl_caption=&amp;rdquo;&amp;rdquo; title=&amp;quot;&amp;ldquo;&amp;gt;Create New User example case, if you were stolen aws credential, attacker may create new user in use that credential.</description>
     </item>
     
     <item>
       <title>Amazon CloudWatch Logs Insights で SIEM ぽいことをやってみる</title>
-      <link>https://www.uranari.io/tech/security/aws-siem-for-insights/</link>
+      <link>https://uranari.com/tech/security/aws-siem-for-insights/</link>
       <pubDate>Thu, 03 Jan 2019 12:28:36 +0900</pubDate>
       
-      <guid>https://www.uranari.io/tech/security/aws-siem-for-insights/</guid>
+      <guid>https://uranari.com/tech/security/aws-siem-for-insights/</guid>
       <description>AWS re:Ivent 2018 では AWS Security Hub や KMS Custom Key Store などの新しいセキュリティ関連のマネージドサービスが発表されましたが、個人的に一番熱かったのが Amazon CloudWatch Logs Insights だったので紹介しておきます。
 Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをインタラクティブに検索できるものですが、概要だけ聞いたときに「それ SIEM じゃん」と思ったので、実際に SIEM として使えるか試してみました。
 ここでは例として CloudTrail のログを分析対象とします。
@@ -61,15 +65,15 @@ Amazon CloudWatch Logs Insights は従来の CloudWatch Logs のログをイン�
 それアラート設定してる意味ないじゃんとなります。
 話を戻して CloudWatch Logs Insight でのログの絞り込み方法です。
 まず eventSource ごとに分けることをおすすめしましたので eventSource だけを表示させます。
-&amp;lt;a href=&amp;ldquo;https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg&amp;quot; data-rel=&amp;ldquo;lightbox-gallery-0QZwyEn5&amp;rdquo; data-rl_title=&amp;rdquo;&amp;quot; data-rl_caption=&amp;quot;&amp;quot; title=&amp;quot;&amp;quot;&amp;gt;ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</description>
+&amp;lt;a href=&amp;quot;https://dtiemu0c7gxsz.cloudfront.net/image/aws-siem-for-insight/eventSource.jpg&amp;rdquo; data-rel=&amp;quot;lightbox-gallery-0QZwyEn5&amp;rdquo; data-rl_title=&amp;rdquo;&amp;rdquo; data-rl_caption=&amp;rdquo;&amp;rdquo; title=&amp;quot;&amp;ldquo;&amp;gt;ここから S3 のイベントに絞ってさらに特定のバケットのイベントに絞ると以下のようになります。</description>
     </item>
     
     <item>
       <title>技術書典4で購入した本のレビュー ～脆弱性ってなんだろう～</title>
-      <link>https://www.uranari.io/tech/security/374/</link>
+      <link>https://uranari.com/tech/security/374/</link>
       <pubDate>Wed, 25 Apr 2018 09:36:34 +0000</pubDate>
       
-      <guid>https://www.uranari.io/tech/security/374/</guid>
+      <guid>https://uranari.com/tech/security/374/</guid>
       <description>技術書典4で何冊か本を購入したのでレビューをしたいと思います。
 まず最初になつよさん(@infragirl755)が出してた「脆弱性ってなんだろう？～CVSSを知ろう～」から。
 この本では脆弱性そのものの説明は軽くで主にCVSSという脆弱性の危険度の評価基準についての解説が記載されている。
@@ -104,10 +108,10 @@ CVSSとは脆弱性の評価手法の１つで大きく3つの基準から構成
     
     <item>
       <title>Dockerを使って脆弱性の検証環境を作成してみる　～Dockerイメージ作成編～</title>
-      <link>https://www.uranari.io/tech/346/</link>
+      <link>https://uranari.com/tech/346/</link>
       <pubDate>Wed, 29 Nov 2017 03:03:56 +0000</pubDate>
       
-      <guid>https://www.uranari.io/tech/346/</guid>
+      <guid>https://uranari.com/tech/346/</guid>
       <description>前回は公開されてるイメージから脆弱性の検証を実施してみたけど今回はイメージを作成するところからやってみる。
 今回はTomcatのPUTの脆弱性(CVE-2017-12615～12617)を検証してみる。
 まずはあらかじめ検証対象のTomcatをローカルに保存し、web.xmlにreadonly falseの設定を追加しておく。
@@ -118,10 +122,10 @@ CVSSとは脆弱性の評価手法の１つで大きく3つの基準から構成
     
     <item>
       <title>Dockerを使って脆弱性の検証環境を作成してみる</title>
-      <link>https://www.uranari.io/tech/334/</link>
+      <link>https://uranari.com/tech/334/</link>
       <pubDate>Wed, 18 Oct 2017 04:23:03 +0000</pubDate>
       
-      <guid>https://www.uranari.io/tech/334/</guid>
+      <guid>https://uranari.com/tech/334/</guid>
       <description>Dockerを使って脆弱性の検証環境を作れば簡単に再利用できるし、イメージを配布してみんなで共有できれば個々人で検証環境立ててたのを誰かが作れば皆で検証できて良いんじゃないかなーと思ってDockerで検証環境を作成するのに挑戦してみました。
 とは言いつつやっぱり似たようなことを既に先人たちが考えていて、同じようなことをやっている人がいました。
 Dockerを使って、Apache Struts2の脆弱性S2-037のやられ環境を手軽に作る
@@ -135,10 +139,10 @@ Docker Hubを覗いてみるといい感じに既にできているものがあ�
     
     <item>
       <title>S2-048(CVE-2017-9791)を検証してみる</title>
-      <link>https://www.uranari.io/tech/security/261/</link>
+      <link>https://uranari.com/tech/security/261/</link>
       <pubDate>Fri, 07 Jul 2017 21:29:59 +0000</pubDate>
       
-      <guid>https://www.uranari.io/tech/security/261/</guid>
+      <guid>https://uranari.com/tech/security/261/</guid>
       <description>Struts2の脆弱性がアナウンスされていたので検証してみました。またRCEみたいです。
 https://cwiki.apache.org/confluence/display/WW/S2-048
 既にというかcwikiの該当のページが公開される前からチラホラと噂が流れてて公開とほぼ同じかそれより先のタイミングで攻撃コードも出回りはじめていたのでなんだかなーという気持ち。
@@ -156,10 +160,10 @@ https://cwiki.apache.org/confluence/display/WW/S2-048
     
     <item>
       <title>pcapファイルから特定のHTTPRequestとそのResponseを抜き出す</title>
-      <link>https://www.uranari.io/tech/219/</link>
+      <link>https://uranari.com/tech/219/</link>
       <pubDate>Mon, 05 Jun 2017 12:43:36 +0000</pubDate>
       
-      <guid>https://www.uranari.io/tech/219/</guid>
+      <guid>https://uranari.com/tech/219/</guid>
       <description>ネットワーク系のエンジニアなら誰しも数GBあるpcapファイルから特定のHTTPRequstとそのResponseだけを抜き出したくなることが何回かあるのではないでしょうか。
  やり方を書いてみます。
 まずpcapファイルがありますね。
@@ -173,10 +177,10 @@ https://cwiki.apache.org/confluence/display/WW/S2-048
     
     <item>
       <title>サイバーセキュリティはだれのもの？</title>
-      <link>https://www.uranari.io/poem/181/</link>
+      <link>https://uranari.com/poem/181/</link>
       <pubDate>Thu, 09 Mar 2017 17:16:08 +0000</pubDate>
       
-      <guid>https://www.uranari.io/poem/181/</guid>
+      <guid>https://uranari.com/poem/181/</guid>
       <description>最近思っていることを書いておこうかなと。
 将来自分の考え方が変わったときでもこの記事を振り返って「あの頃はこう思ってたなー」と振り返れるように。
 これから書くことは筆者の個人的な観測範囲での話です。
@@ -204,10 +208,10 @@ https://cwiki.apache.org/confluence/display/WW/S2-048
     
     <item>
       <title>ハニーポット観察記録を読んだ</title>
-      <link>https://www.uranari.io/tech/33/</link>
+      <link>https://uranari.com/tech/33/</link>
       <pubDate>Thu, 02 Feb 2017 08:24:01 +0000</pubDate>
       
-      <guid>https://www.uranari.io/tech/33/</guid>
+      <guid>https://uranari.com/tech/33/</guid>
       <description>morihi-socの森久さんがハニーポット本を出したので読んだ感想を書きます。
 内容はハニーポットのログから攻撃手法や攻撃の傾向を調べてみようといったものです。ログからどういった脆弱性を狙った攻撃なのかだけでなく攻撃者の意図まで推測しようというところはさすがです。
 この攻撃はbotで自動的に打たれてるのか、ただの愉快犯てきな攻撃なのか、脆弱性があるか調査してるだけなのか、本気でデータベースの情報を取りにきてるのかといったところまで想像を膨らませながら分析すると楽しいですね。

@@ -2,17 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gallery on uranari</title>
-    <link>https://www.uranari.io/categories/gallery/</link>
+    <link>https://uranari.com/categories/gallery/</link>
     <description>Recent content in Gallery on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Sat, 11 Feb 2017 03:57:16 +0000</lastBuildDate><atom:link href="https://www.uranari.io/categories/gallery/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Feb 2017 03:57:16 +0000</lastBuildDate>
+    
+	<atom:link href="https://uranari.com/categories/gallery/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>鎌倉をお散歩</title>
-      <link>https://www.uranari.io/gallery/67/</link>
+      <link>https://uranari.com/gallery/67/</link>
       <pubDate>Sat, 11 Feb 2017 03:57:16 +0000</pubDate>
       
-      <guid>https://www.uranari.io/gallery/67/</guid>
+      <guid>https://uranari.com/gallery/67/</guid>
       <description>    </description>
     </item>
     

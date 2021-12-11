@@ -2,17 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ssmjp on uranari</title>
-    <link>https://www.uranari.io/categories/ssmjp/</link>
+    <link>https://uranari.com/categories/ssmjp/</link>
     <description>Recent content in ssmjp on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Tue, 26 Sep 2017 05:35:42 +0000</lastBuildDate><atom:link href="https://www.uranari.io/categories/ssmjp/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 26 Sep 2017 05:35:42 +0000</lastBuildDate>
+    
+	<atom:link href="https://uranari.com/categories/ssmjp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>2017年9月のssmjpに参加してきたよ</title>
-      <link>https://www.uranari.io/ssmjp/322/</link>
+      <link>https://uranari.com/ssmjp/322/</link>
       <pubDate>Tue, 26 Sep 2017 05:35:42 +0000</pubDate>
       
-      <guid>https://www.uranari.io/ssmjp/322/</guid>
+      <guid>https://uranari.com/ssmjp/322/</guid>
       <description>2017年9月のssmjpに参加してきました。
 伸弘辻のすべらないLT
 今回は伸弘辻のすべらないLTということで、参加者が200人超えのssmjp史上最大の参加者数だったようです
@@ -35,10 +39,10 @@ MVSL(Most Valuable すべらない LT 賞)はえにぐまさんのIPAの試験�
     
     <item>
       <title>2017年6月のssmjpに参加してきたよ</title>
-      <link>https://www.uranari.io/ssmjp/231/</link>
+      <link>https://uranari.com/ssmjp/231/</link>
       <pubDate>Tue, 04 Jul 2017 06:28:58 +0000</pubDate>
       
-      <guid>https://www.uranari.io/ssmjp/231/</guid>
+      <guid>https://uranari.com/ssmjp/231/</guid>
       <description>2017年6月のssmjpに参加してきました。
 タイトルと発表者はそれぞれ以下の通り
 信頼できる情報源の探し方 @YuhoKameda Kamedaさんは最近blogを書いていて、その中で情報をどこまで追っかけると信頼できるか検証しており、1日で1500～2000記事くらいをFeedlyで見ているとのこと。
@@ -90,10 +94,10 @@ DynamoDBの辛い点
     
     <item>
       <title>2017年2月のssmjpに参加してきたよ</title>
-      <link>https://www.uranari.io/ssmjp/71/</link>
+      <link>https://uranari.com/ssmjp/71/</link>
       <pubDate>Tue, 21 Feb 2017 11:19:30 +0000</pubDate>
       
-      <guid>https://www.uranari.io/ssmjp/71/</guid>
+      <guid>https://uranari.com/ssmjp/71/</guid>
       <description>2017年2月のssmjpに参加してきました。
 4人の発表者がいてタイトルはそれぞれ以下の通り
 米国のペネトレーションテスト事情 Tomohisa Ishikawa 最近のアメリカでのペネトレーションテスト事情についてのLTでした。

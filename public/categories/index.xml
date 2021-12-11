@@ -2,125 +2,129 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on uranari</title>
-    <link>https://www.uranari.io/categories/</link>
+    <link>https://uranari.com/categories/</link>
     <description>Recent content in Categories on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Thu, 16 Apr 2020 22:08:41 +0900</lastBuildDate><atom:link href="https://www.uranari.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Apr 2020 22:08:41 +0900</lastBuildDate>
+    
+	<atom:link href="https://uranari.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>azure</title>
-      <link>https://www.uranari.io/categories/azure/</link>
+      <link>https://uranari.com/categories/azure/</link>
       <pubDate>Thu, 16 Apr 2020 22:08:41 +0900</pubDate>
       
-      <guid>https://www.uranari.io/categories/azure/</guid>
+      <guid>https://uranari.com/categories/azure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>azure-functions</title>
-      <link>https://www.uranari.io/categories/azure-functions/</link>
+      <link>https://uranari.com/categories/azure-functions/</link>
       <pubDate>Thu, 16 Apr 2020 22:08:41 +0900</pubDate>
       
-      <guid>https://www.uranari.io/categories/azure-functions/</guid>
+      <guid>https://uranari.com/categories/azure-functions/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AWS</title>
-      <link>https://www.uranari.io/categories/aws/</link>
+      <link>https://uranari.com/categories/aws/</link>
       <pubDate>Sat, 26 Oct 2019 11:20:49 +0900</pubDate>
       
-      <guid>https://www.uranari.io/categories/aws/</guid>
+      <guid>https://uranari.com/categories/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>security</title>
-      <link>https://www.uranari.io/categories/security/</link>
+      <link>https://uranari.com/categories/security/</link>
       <pubDate>Sat, 26 Oct 2019 11:20:49 +0900</pubDate>
       
-      <guid>https://www.uranari.io/categories/security/</guid>
+      <guid>https://uranari.com/categories/security/</guid>
       <description></description>
     </item>
     
     <item>
       <title>tech</title>
-      <link>https://www.uranari.io/categories/tech/</link>
+      <link>https://uranari.com/categories/tech/</link>
       <pubDate>Thu, 03 Jan 2019 12:28:36 +0900</pubDate>
       
-      <guid>https://www.uranari.io/categories/tech/</guid>
+      <guid>https://uranari.com/categories/tech/</guid>
       <description></description>
     </item>
     
     <item>
       <title>poem</title>
-      <link>https://www.uranari.io/categories/poem/</link>
+      <link>https://uranari.com/categories/poem/</link>
       <pubDate>Sun, 31 Dec 2017 05:05:39 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/poem/</guid>
+      <guid>https://uranari.com/categories/poem/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ssmjp</title>
-      <link>https://www.uranari.io/categories/ssmjp/</link>
+      <link>https://uranari.com/categories/ssmjp/</link>
       <pubDate>Tue, 26 Sep 2017 05:35:42 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/ssmjp/</guid>
+      <guid>https://uranari.com/categories/ssmjp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Iwate</title>
-      <link>https://www.uranari.io/categories/iwate/</link>
+      <link>https://uranari.com/categories/iwate/</link>
       <pubDate>Thu, 03 Aug 2017 15:41:14 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/iwate/</guid>
+      <guid>https://uranari.com/categories/iwate/</guid>
       <description></description>
     </item>
     
     <item>
       <title>trip</title>
-      <link>https://www.uranari.io/categories/trip/</link>
+      <link>https://uranari.com/categories/trip/</link>
       <pubDate>Thu, 03 Aug 2017 15:41:14 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/trip/</guid>
+      <guid>https://uranari.com/categories/trip/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hyogo</title>
-      <link>https://www.uranari.io/categories/hyogo/</link>
+      <link>https://uranari.com/categories/hyogo/</link>
       <pubDate>Sat, 13 May 2017 16:54:47 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/hyogo/</guid>
+      <guid>https://uranari.com/categories/hyogo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Saitama</title>
-      <link>https://www.uranari.io/categories/saitama/</link>
+      <link>https://uranari.com/categories/saitama/</link>
       <pubDate>Wed, 26 Apr 2017 05:33:31 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/saitama/</guid>
+      <guid>https://uranari.com/categories/saitama/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Toyama</title>
-      <link>https://www.uranari.io/categories/toyama/</link>
+      <link>https://uranari.com/categories/toyama/</link>
       <pubDate>Wed, 01 Mar 2017 15:19:05 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/toyama/</guid>
+      <guid>https://uranari.com/categories/toyama/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gallery</title>
-      <link>https://www.uranari.io/categories/gallery/</link>
+      <link>https://uranari.com/categories/gallery/</link>
       <pubDate>Sat, 11 Feb 2017 03:57:16 +0000</pubDate>
       
-      <guid>https://www.uranari.io/categories/gallery/</guid>
+      <guid>https://uranari.com/categories/gallery/</guid>
       <description></description>
     </item>
     

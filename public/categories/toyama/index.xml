@@ -2,17 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Toyama on uranari</title>
-    <link>https://www.uranari.io/categories/toyama/</link>
+    <link>https://uranari.com/categories/toyama/</link>
     <description>Recent content in Toyama on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 01 Mar 2017 15:19:05 +0000</lastBuildDate><atom:link href="https://www.uranari.io/categories/toyama/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 01 Mar 2017 15:19:05 +0000</lastBuildDate>
+    
+	<atom:link href="https://uranari.com/categories/toyama/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>富山五箇山の合掌造り集落が美しかったよ</title>
-      <link>https://www.uranari.io/trip/146/</link>
+      <link>https://uranari.com/trip/146/</link>
       <pubDate>Wed, 01 Mar 2017 15:19:05 +0000</pubDate>
       
-      <guid>https://www.uranari.io/trip/146/</guid>
+      <guid>https://uranari.com/trip/146/</guid>
       <description>どうも、uranariです
 富山県の五箇山にある世界遺産にも指定されている相倉集落と菅沼集落に行ってきました。
 合掌造りの世界遺産というと白川郷が有名ですが、白川郷と五箇山を含めた合掌造りの集落が世界遺産に指定されています。

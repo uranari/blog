@@ -2,17 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Saitama on uranari</title>
-    <link>https://www.uranari.io/categories/saitama/</link>
+    <link>https://uranari.com/categories/saitama/</link>
     <description>Recent content in Saitama on uranari</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
-    <lastBuildDate>Wed, 26 Apr 2017 05:33:31 +0000</lastBuildDate><atom:link href="https://www.uranari.io/categories/saitama/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Apr 2017 05:33:31 +0000</lastBuildDate>
+    
+	<atom:link href="https://uranari.com/categories/saitama/index.xml" rel="self" type="application/rss+xml" />
+    
+    
     <item>
       <title>秩父をぶらり旅</title>
-      <link>https://www.uranari.io/trip/195/</link>
+      <link>https://uranari.com/trip/195/</link>
       <pubDate>Wed, 26 Apr 2017 05:33:31 +0000</pubDate>
       
-      <guid>https://www.uranari.io/trip/195/</guid>
+      <guid>https://uranari.com/trip/195/</guid>
       <description>なんとなく秩父行きたいなーと思って行ってきました。
 とりあえず朝の9時に西武秩父駅に着いたけど全くノープラン・・・
  駅の改札出たところでスマホで秩父の観光名所を検索しながらとりあえず三峰神社に行ってみようということでバスに乗って三峰神社へ
